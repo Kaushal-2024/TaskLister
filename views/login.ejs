@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title> 
+
+    <link rel="stylesheet" href="stylesheets/formstyle.css">
+</head>
+
+<body>
+    <div style="  font-size: 30px;  position: absolute ; left:1%;">
+        @Kasuhal Tarpara<br> 24DEV048
+    </div>
+
+
+    <div class="main">
+        <h1>LogIn</h1>
+        <form method="POST" id="loginForm" name="loginForm">          
+
+            <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" tabindex="3">
+        </div>
+
+       
+
+        <div>
+            <label for="password">Password :</label>
+            <input type="text" id="password" name="password" placeholder="Enter your password" tabindex="5">
+        </div>
+
+      <!-- <div>
+        <a href="/resetPassword" id="fgBtn" style="color:blue; text-align: right;" tabindex="7">
+            Forgot password ?
+        </a>
+
+      </div> -->
+
+      <div>
+        <p id="fgBtn" style="color:red;" >
+            
+        </p>
+
+      </div>
+            
+            <div class="wrap"  style="margin-top: 50px;">                  
+               
+                <p id="loginBtn" class="subBtn" style="width: 100px;"tabindex="8">
+                    Login
+                </p>
+            </div>
+           
+           
+        </form>
+    </div>
+    
+    <script src="/javascripts/loginvalidation.js"></script>
+</body>
+
+</html>
