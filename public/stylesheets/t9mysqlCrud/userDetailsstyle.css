@@ -1,0 +1,101 @@
+/* Import Font Dancing Script */
+
+
+* {
+    margin: 0;
+    font-family: gilroy;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+body {
+    background-color: #e8f5ff;
+    font-family: Arial;
+    overflow: hidden;
+}
+
+/* NavbarTop */
+.navbar-top {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0px 4px 8px 0px grey;
+    height: 70px;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    padding-top: 15px;
+    position: absolute;
+    left: 45%;
+    font-size: 40px !important;
+}
+
+
+/* End */
+
+
+/* Main */
+.main {
+    margin-top: 2%;
+    margin-left: 29%;
+    
+    padding: 0 10px;
+    width: 45%;
+}
+
+.main h2 {
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+    margin-bottom: 10px;
+}
+
+.main .card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 1px 1px 8px 0 grey;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 50px;
+}
+
+.main .card table {
+    border: none;
+    
+    height: 270px;
+    width: 80%;
+}
+
+.edit {
+    position: absolute;
+    color: #e7e7e8;
+    right: 14%;
+}
+
+
+
+/* End */
+.links{
+  margin-top: 50px;
+}
+.btnStyle {
+  background: #f39c12;
+  color: #fff;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: max-content;
+  border: none;
+  border-radius: 2rem;
+  color: black;
+  cursor: pointer;
+  margin: 60px;
+  transition-duration: 0.4s;
+}
+
+.btnStyle:hover {
+  background: #fff;
+  box-shadow: 0px 2px 20px 10px #97B1BF;
+  color: #000;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student attendance  Details</title>
+    <link rel="stylesheet" href="/stylesheets/t10attenc/allStudentList.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+    <%- include('partials/pagination'); %>
+  
+      
+    
+        <table class="fl-table">
+           <caption class="Caption"> Student attendance  Details</caption>
+            <thead>
+
+                <tr> 
+                    <%
+                          for(field of fields){
+                             %> <th><%=   field.name %>                           
+                               
+                            </th>
+                             <%
+                        }
+                    %>
+
+                </tr>
+            </thead>
+
+             <%   for(result of results){ %>
+                
+                <tr>
+                 
+                    <td> <%= result.StudentId %> </td>
+                    <td> <%= result.StudentName %> </td>
+                    <td> <%= result.totalPresentDay %> </td>
+                    <td> <%= result.percentage %> </td>
+                    
+                </tr>
+
+              <%  } %>
+
+          
+        </table>    
+       
+    
+</body>
+
+</html>

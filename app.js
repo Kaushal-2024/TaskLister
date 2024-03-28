@@ -9,6 +9,19 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+
+const r1 = require('./routes/t8fileCrud/routerFile');
+const r2 = require('./routes/t9mysqlCrud/index');
+const r3 = require('./routes/t10attenc/index');
+const allRouter =  [r1,r2,r3]
+
+
+allRouter.forEach(routes=>{
+  //console.log(routes);
+  app.use('/',routes)
+})
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
