@@ -34,9 +34,41 @@ router.get('/dashboard',async function(req, res, next) {
 
 
 router.get('/dynemicTable',async function(req, res, next) {
-  console.log(__dirname);
-  res.sendFile('/home/kaushal-talpara/1.eSparkBiz/4. Node/day-46/TaskLister/public/Task/t1dynemicTabel/index.html');
-  // res.sendFile('../Task/t1dynemicTable/index.html')
+  
+  res.sendFile(path.join(__dirname+'/../public/Task/t1dynemicTabel/index.html'));
+ 
+});
+
+router.get('/cucuCube',async function(req, res, next) {
+  
+  res.sendFile(path.join(__dirname+'/../public/Task/t2cucuCube/index.html'));
+ 
+});
+
+
+router.get('/ticTacToa',async function(req, res, next) {
+  
+  res.sendFile(path.join(__dirname+'/../public/Task/t3tic-tac-toe/index.html'));
+ 
+});
+
+router.get('/eyesClone',async function(req, res, next) {
+  
+  res.sendFile(path.join(__dirname+'/../public/Task/t4eyesClone/index.html'));
+ 
+});
+
+router.get('/awanHoster',async function(req, res, next) {
+  
+  res.sendFile(path.join(__dirname+'/../public/Task/t5awanHoster/index.html'));
+ 
+});
+
+
+router.get('/hireX',async function(req, res, next) {
+  
+  res.sendFile(path.join(__dirname+'/../public/Task/t6hireX/index.html'));
+ 
 });
 
 

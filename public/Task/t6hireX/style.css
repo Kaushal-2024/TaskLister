@@ -1,0 +1,660 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Gilroy;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+:root{
+    --Orange : #FC7F3A;
+    --TOMATO: #FC6868;
+    --YELLOW : #FFBB38;
+    --YELLOW2 : #FFC80A;
+    --GREEN : #389B48;
+    --GREEN2: #64E379;
+    --BLACK : #000000;
+    --WHITE : #FFFFFF;
+    --SITEBG : #F9F7EE;
+    --CARDBG : #EBE9DE;
+
+    /* use like var(--BLACK) */
+}
+header{
+    background-color: var(--SITEBG);
+}
+
+section{
+    padding: 130px 0;
+}   
+
+.container {
+    max-width: 1480px;    
+    margin: 0 auto;    
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col2 {
+    width: calc(100%/2);
+    padding: 0 15px;
+}
+
+.col1 {
+    width: fit-content;
+    padding: 0 15px;
+}
+
+.col3 {
+    width: calc(95%/3);
+    padding: 0 15px;
+}
+
+.col4 {
+    width: calc(100%/4);
+    padding: 0 15px;
+}
+
+.h3Heading{
+    font-size: 30px;
+}
+
+.h2Heading{
+    font-size: 90px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.centerAllChildVer{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.centerAllChildHori > *{
+   padding: 20px 0;
+}
+
+
+/* nav styling */
+
+nav{
+    background-color: var(--SITEBG);    
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > nav > div + div  > *{   
+   padding: 15px 30px;
+   text-decoration: none;
+   color: var(--BLACK);  
+}
+
+.navButton{
+    background-color: var(--BLACK);
+    color: var(--WHITE); 
+    border-radius: 10px;   
+    padding: 0 auto;    
+    width: max-content;
+}
+
+
+
+/* section 1 styling */
+
+#sec1{
+    background-color: var(--SITEBG);
+}
+
+.m40 > *{
+    margin-bottom: 40px;
+}
+
+
+#sec1Left > div{
+    width: 600px;
+}
+
+#sec1Left > div >input{
+    height: 50px;
+    width: 600px;    
+    border-left: 2px solid var(--BLACK);
+    border-top: 2px solid var(--BLACK);
+    border-right:  2px solid var(--BLACK);
+    border-bottom: 5px solid var(--BLACK);  
+    border-radius: 2px;  
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#getAcbtnx{
+    height: 50px;
+    width: 250px;   
+    font-size: large;
+    background-color: var(--YELLOW2);
+    border-top: 2px solid var(--BLACK);
+    border-right:  5px solid var(--BLACK);
+    border-bottom: 5px solid var(--BLACK);     
+    
+}
+
+.sec1Banner{
+    background-color: #64e3794f;
+    border-radius: 15px;
+    height: 50px;
+    position: relative;
+    max-width: 300px;
+    font-size: 18px;
+}
+
+#sape{
+    background-color: #64e3794f;
+    position: absolute;
+    top : -25%;
+    clip-path: polygon(50% 0%, 0 66%, 100% 65%);
+    height: 20px;
+    width: 20px;
+    /* rotate: 45deg; */
+}
+
+.sape{
+    height: 250px;
+    width: 250px;
+}
+
+#sec1Right{
+   position: relative;
+}
+
+#sec1Right > *{
+    position: absolute;
+}
+
+#sec1Right > * > *{
+    position: absolute;
+}
+
+
+
+#sape1{
+    border-radius: 50%;
+    background-color: var(--Orange);    
+    right: 10%;      
+    z-index: 1
+}
+
+#sape1 > img{
+    position: absolute;
+    top: 10%;
+    right: 25%;
+}
+
+#sape1 > h3{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    font-size: 45px;    
+}
+
+#sape2{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: var(--YELLOW);    
+    right: 30%;
+    top: 25%;         
+}
+
+#sape2 > img{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+#sape2 > h3{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    font-size: 40px;    
+}
+
+#sape3{
+    background-color: var(--GREEN);   
+    right: 0%; 
+    color: white;
+    left: 13%;
+    top: 58%;        
+    z-index: 1;
+}
+
+#sape3 > img{
+    position: absolute;
+    top: 60%;
+    right: 15%;
+}
+
+#sape3 > h3{    
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 50px;    
+}
+
+#sape4{
+    position: absolute;
+    bottom: 6%;
+    right: 20%;
+}
+
+.dynemicBar{
+    padding: 10px 0 ;
+    width: 100%;
+    overflow-x: auto;
+    height: 100px;
+    background-color: var(--BLACK);
+    color: var(--WHITE);
+}
+
+.rotate90{
+    transform: rotate(90deg);
+}
+
+.paddAll > div > *{
+    padding: 0 20px;
+    font-size: 25px;
+    width: max-content;
+}
+
+
+/* section 2 styling */
+
+#sec2{
+    background-color: var(--SITEBG);
+    height: 1000px;
+}
+
+
+
+.title{
+    max-width: 100%;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.sec2row > * {
+    margin: 10px;
+    height: 550px;    
+    border-radius: 10px;    
+    padding: 0  100px;
+    background-color: var(--CARDBG);
+   
+}
+
+
+.btn1{
+    width: 200px;
+    background-color: var(--GREEN);
+    color: var(--WHITE);    
+    border: 1.5px solid black;
+    border-radius: 5px;
+    box-shadow: 4px 4px black;
+    height: 60px;
+    text-align: center;
+    padding: 15px;
+}   
+
+.btnef{
+    width: 150px;
+    font-size: 20px;
+    background-color: var(--Orange);
+    color: var(--WHITE);        
+    border-radius: 50px;   
+    height: 40px;   
+    padding: 15px;
+}  
+.title > div >h2{
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.title > div > p{
+    font-size: 18px;
+    text-align: center;
+    padding: 0 580px;   
+}
+
+.sec2row > div > p {
+    font-size: medium;    
+}
+
+.sec2row > div > h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.bgYel{
+    background-color: var(--YELLOW)  !important;
+    color: black  !important;
+}
+
+.bgOrg{
+    background-color: var(--Orange)  !important;
+    color: black  !important;
+}
+
+.bgBlu{
+    background-color: royalblue  !important;
+    color: var(--WHITE)  !important;
+}
+
+/* section 3 styling */
+
+#sec3{
+    background-color: var(--SITEBG);
+    height: 1000px;
+    padding: 100px 0 0 0;
+}
+
+
+
+.sec3cards {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.btnef2 {
+    border: 2px solid black;
+    border-radius:  50px;
+    width: max-content;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+.sec3cards >  div > h3{
+    font-size: 25px;
+    padding-bottom: 5px !important;
+}
+
+.sec3cards >  div >p{
+    font-size: 18px;
+    padding-top: 5px !important;
+}
+
+.sec3cards >  div > a{
+    font-size: 18px;
+    color: var(--BLACK);
+}
+
+.sec3cards >  div > .btn1{
+   /* margin-top: 400px; */
+   position: absolute;
+   bottom: 0%;
+   right: 10%;
+}
+
+#sec3Card2 {
+    position: relative;
+}
+
+/* section 4 styling */
+
+#sec4{
+    height: 1000px;
+    background-color: var(--SITEBG);
+}
+
+.sec4Card {
+    margin: 0 auto;
+    width: fit-content;
+    gap : 30px;
+}
+.sec4Card > *{
+    /* margin: 0 20px; */
+    height: 550px; 
+    /* width: 400px;    */
+    border-radius: 10px;    
+    padding: 0  50px;
+    background-color: var(--CARDBG);
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
+}
+
+.sec4Card > div:hover{
+    /* margin: 0 20px; */
+    height: 560px; 
+    /* width: 400px;    */
+    border-radius: 10px;    
+    padding: 0  50px;
+    background-color: var(--BLACK);
+    color: var(--WHITE);
+    top : -10px;   
+   
+}
+
+.sec4Card:hover > div > a{
+    box-shadow: 4px 4px white;
+}
+
+.sec4Card >  div > p {
+    text-align: center;
+}
+.sec4Card > div > h3{
+    font-size: 25px;
+}
+
+.sec4Card > div > p{
+    font-size: 16px;
+}
+
+.sec4Card > div > .money{
+    display: flex;
+}
+
+.flex{
+    display: flex;
+}
+.price{
+    font-size: 50px;
+}
+
+.period{
+    padding-top: 28px;
+}
+.sec4Card > div > .btn3{
+    width: 250px;
+    background-color: var(--GREEN);
+    height: 60px;
+    border-radius: 10px ;
+    font-size: 23px;
+    color: white;
+    text-decoration: none;
+}
+
+.sec4hr{
+    margin: 0 10%;
+    height: 1px;
+    width: 100%;
+}
+
+.m10 > *{
+    margin: 10px 0px;
+    font-size: 18px;
+}
+
+.planFet > *::before{
+    content: " ✔️ ";
+}
+
+/* section 5 styling */
+
+#sec5{     
+    margin: 0 auto;
+    height: 600px;
+    background-color: var(--GREEN2);
+    padding: 40px 150px ;
+}
+
+.sec5container{
+    max-width: 1470px; 
+    margin: 0 auto;
+}
+
+#sec5img{
+    position: relative;
+}
+
+#sec5img > img{
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border : 2px solid black;
+}
+
+#name{
+    background-color: var(--YELLOW);
+    position: absolute;
+    bottom:-5%;
+    left: 23%;
+
+    width: max-content;
+    padding: 10px 20px;
+    justify-content: space-around;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+.innerBtn2{
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 5px 10px;
+    box-shadow: 3px 3px black;
+    background-color: var(--GREEN);
+    margin-left: 10px;
+
+}
+#sec5textCon {
+    margin: auto 0;
+    padding: 0 100px;
+} 
+
+#sec5textCon > *{    
+    margin: 30px 10 0px;
+} 
+
+#sec5textCon > h3{
+    font-size: 30px;
+} 
+
+.sec5Content{
+    min-width: 1350px !important;
+    display: flex;
+    padding: 0 80px;    
+}
+
+#slider{   
+    height: 510px;
+    overflow-x: hidden;    
+}
+
+/* section 6 styling */
+
+#sec6{
+    background-color: var(--SITEBG);
+    height: 1000px;
+    padding: 100px 0 100px 0;
+}
+
+
+#sec6Title > *{
+    margin: 40px 150px;
+} 
+
+#sec6Title > h2{
+    font-size: 30px;
+    
+}
+
+#sec6Title > h3{
+    width: 80px;    
+}
+
+/* section 7 styling */
+
+#sec7{
+    height: 487px;
+    background-color: var(--YELLOW2);
+}
+
+.fs30{
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+.inputType{
+    background-color: var(--YELLOW2);
+    height: 50px;
+    width: 450px;
+    border: none;
+}       
+
+#sec7hr{
+    width: 70%;
+}
+
+/* footer styling */
+
+.ftitle > img {
+    margin: 100px 0 30px;
+}
+
+#fDetials > div > h3{
+    font-size: 17px;
+    margin: 20px 0px;
+}
+
+#fDetials > div > p {
+    font-size: 20px;
+    margin: 20px 0px;
+}
+
+.floatr{
+    text-align: right;
+}
+
+.fs10 > *{
+    font-size: 17px;
+}
+
+.m40ub{
+    margin:  40px 0px  20px 0px ;
+}
+
+/* bug fixes */
+
+.inputTypew{
+    padding: 10px;
+}
+
+.centerVer{
+    align-items: center;
+    display: flex;
+    margin-right: 13px;
+}
+

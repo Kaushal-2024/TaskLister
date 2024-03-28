@@ -1,0 +1,422 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Gilroy;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+/* header (nav) section 1 style */
+
+header {
+    margin: 0 auto;
+    padding: 30px 10%;
+    width: 100%;
+    height: 15vh;
+}
+
+#navCon {
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    content: url(./img/Logo.svg);
+    height: 50px;
+    width: 100px;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+li>* {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-weight: bolder;
+    margin-right: 30px;
+}
+
+#getBtn {
+    padding: 15px 15px;
+    height: 100px;
+    width: 150px;
+    border: 2px solid blueviolet;
+    border-radius: 7px;
+    font-size: 2.8ch;
+    font-weight: bolder;
+    color: blueviolet;
+    transition: all ease 0.3s;
+}
+
+#getBtn:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+/* section 1 style start */
+
+#sec1 {
+    height: 85dvh;
+    padding: 30px 10%;
+}
+
+
+.container {
+    max-width: 1440px;
+    padding: 0px 15px;
+    margin: 0 auto;
+    
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    width: calc(100%/2);
+    padding: 0 15px;
+}
+
+#mainContent {
+    margin: auto;
+}
+
+#mainContent>* {
+    padding-bottom: 30px;
+}
+
+#mainContent>h1 {
+    font-size: 60px;
+}
+
+#mainContent>p {
+    font-size: 27px;
+}
+
+#mainContent>#btnConsl {
+    width: 250px;
+    height: 70px;
+    background-color: blueviolet;
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+}
+
+/* section 2 style start */
+
+
+#sec2 {
+    height: 100dvh;
+    width: auto;
+    background-color: #F3F7FD;
+    padding: 150px 10%;
+}
+
+.headings {
+    width: 70%;
+    margin: auto;
+}
+
+.headings>* {
+    text-align: center;
+    margin: 20px;
+}
+
+.headings>h5 {
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #36B37E;
+    letter-spacing: 5px;
+}
+
+.headings>h2 {
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.headings>p {
+    padding: 0 130px;
+    font-size: 25px;
+    color: #5A7184;
+}
+
+.topm100 {
+    margin-top: 100px;
+}
+
+.col3 {
+    width: calc(100%/3);
+    padding: 0 15px;
+}
+
+#serviceDetails>* {
+    justify-content: end;
+    display: flex;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    background-color: #b7c5bf68;
+    border: none;
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 10px;
+    content: url("https://cdn.iconscout.com/icon/free/png-256/free-right-true-verify-perfect-trust-64-32776.png");
+}
+
+#servicesCards {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.serCard {
+    width: 400px;
+    height: 450px;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 80px;
+    padding: 40px 50px;
+    border: 0.5px solid #5a718423;
+}
+
+.serCard>* {
+    margin: 32px 0px;
+}
+
+.cardLogo {
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    background-color: white;
+    border: 0.5px solid #5396cc76;
+    border-radius: 20px;
+}
+
+.serCard>p {
+    color: #5a7184d6;
+    font-weight: 700;
+    line-height: 2;
+    font-size: 17px;
+}
+
+.serCard>a {
+    color: #1565D8;
+    font-size: 20px;
+}
+
+#logo1 {
+    content: url("./img/Icon_Home.svg");
+}
+
+#logo2 {
+    content: url("./img/Icon_Blood_Donation.svg");
+}
+
+#logo3 {
+    content: url("./img/Icon_Car.svg");
+}
+
+/* seaction 3 styling   */
+
+#sec3 {
+    height: 100dvh;
+    width: auto;
+    padding: 100px 100px;
+
+}
+
+/* heading similart to sec2 */
+
+#sec3Main {
+    gap: 20px;
+    justify-content: center;
+}
+
+#mainImg1 {
+    background-image: linear-gradient(45deg,
+            rgba(245, 246, 252, 0.753), rgba(34, 4, 26, 0.73)), url('./img/Image.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 30px;
+}
+
+#mainImg2 {
+    background-image: linear-gradient(45deg,
+            rgba(245, 246, 252, 0.753), rgba(34, 4, 26, 0.73)), url("./img/Image2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 30px;
+    padding: 30px;
+}
+
+.sec3img {
+    width: 500px;
+    height: 600px;
+    padding-top: 50px;
+    background-position: cover;
+    border-radius: 10px;
+}
+
+
+
+/* seaction 4 styling   */
+
+#sec4{
+    height: 100dvh;
+    width: auto;
+    padding: 150px 10%;
+}
+.col3>* {
+    margin: 10px;
+    line-height: 2;
+}
+
+#benBox1>* {
+    text-align: left !important;
+    font-weight: bolder;
+}
+
+.benBoxs>p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #5A7184;
+}
+
+#blogo1 {
+    content: url("./img/Donation.svg");
+}
+
+#blogo2 {
+    content: url("./img/Icon_Protection.svg");
+}
+
+#blogo3 {
+    content: url("./img/Icon_Neutron.svg");
+}
+
+#blogo4 {
+    content: url("./img/Icon_CS.svg");
+}
+
+#blogo5 {
+    content: url("./img/Icon_Like.svg");
+}
+
+
+
+.feaBoxs {
+    height: 250px;
+    width: 30%;
+    margin: 35px 0px;
+    padding: 1%;
+    border: 1px solids black;
+
+}
+
+.feaBoxs>* {
+    font-size: 18px;
+    margin: 20px;
+}
+
+
+#feaBox3 > * > img {
+    height: 50px;
+    width: 50px;
+}
+
+
+
+/* footer style */
+
+footer{
+    background-color: #0D2436;
+    color: white;
+    height: 34%;
+    padding: 0 120px;
+}
+
+#mainfo{
+    height: 80%;
+}
+
+#fDeti{
+    width: 35%;   
+    padding: 50px;
+}
+
+#fDeti > img{
+    width: 100px;
+    height: 60px;
+}
+
+#fDeti>p{
+    padding: 20px 150px 10px 0px;
+    font-size: 17px;
+    color: #5A7184;
+}
+
+#fGetStated{
+    width: 65%;    
+    align-items: center;
+    padding: 50px;
+    margin: auto;    
+}
+
+#fGetStated > h2{
+    font-size: 40px;    
+}
+
+#inputfild > #mailInput{
+    height: 60px;    
+    border-radius: 7px;
+    width: 400px;
+}
+
+#inputfild > #btnStated{
+    width: 250px;
+    height: 63px;    
+    margin: 0 40px;
+    background-color: blueviolet;
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+}
+
+#copytex{
+    height: 10%;
+}
+#copytex > h3{
+    
+    text-align: center;
+}
+
+#socialIcon > * {
+    height: 30px;
+    width: 30px;
+}

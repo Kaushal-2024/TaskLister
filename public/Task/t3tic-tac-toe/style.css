@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: gilroy;
+    font-weight: bold;
+    background-color: salmon;
+}
+
+#gBord{
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    height: 80%;
+    
+}
+
+#user > #u1,#u2{
+    padding: 10px 40px;
+    font-weight: 3000;
+    font-size: 30px
+        
+}
+table{
+    border: 1px solid transparent;
+}
+
+td{
+    /* padding: 80px;     */
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    border: 3px solid ;
+    border-color: blueviolet;
+    border-radius: 20px;
+    font-size: 90px;
+}
+
