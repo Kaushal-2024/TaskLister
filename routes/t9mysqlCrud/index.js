@@ -43,14 +43,14 @@ router.get("/t9deleteUser/:userId", (req, res) => {
     if (error) {                
         res.redirect('/error',{error})        
     } else {        
-      res.redirect('/getAllUser')  
+      res.redirect('/t9getAllUser')  
       // res.status(200).send('User deleted successfully');  
     }
   });  
 });
 
 
-router.get("/userDetails/:userId", (req, res) => {
+router.get("/t9userDetails/:userId", (req, res) => {
   
   dbConn.query('SELECT * FROM `tbl_use` where id = (?)',[req.params.userId], (error, results) => {
     if (error) {        

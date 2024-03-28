@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Student Result Details</title>
+    <link rel="stylesheet" href="/stylesheets/t10attenc/allStudentResult.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+  
+        <table class="fl-table">
+           <caption class="Caption" ><%= results[0].StudentName %>'s' Result </caption>
+            <thead>
+                <tr> 
+                    <th rowspan="2">Subject</th>  
+                    
+                    <th colspan="2">Termial</th>
+                    <th colspan="2">Prelimies</th>
+                    <th colspan="2">Final</th>
+                    <th colspan="2">Total</th>
+                    <th rowspan="2">TotalMark</th>
+                 </tr>
+                <tr>                    
+                   <th class = "subRow" >Theory</th>  
+                   <th class = "subRow" >Practical</th>
+                   <th class = "subRow" >Theory</th>
+                   <th class = "subRow" >Practical</th>
+                   <th class = "subRow" >Theory</th>
+                   <th class = "subRow" >Practical</th>
+                   <th class = "subRow" >TotalTheory</th>
+                   <th class = "subRow" >TotalPractical</th>     
+                           
+                </tr>
+            </thead>
+
+             <%   for(result of results){ %>
+                
+                <tr>     
+
+                    <td style="font-size: 25px;"> <%= result.SubjectName %> </td>
+                    <td> <%= result.TheroyMarkTermial %>  /30</td>
+                    <td> <%= result.PracticalMarkTermial %> /20 </td>
+                    <td> <%= result.TheroyMarkPre %> /30 </td>
+                    <td> <%= result.PracticalMarkPre %> /20 </td>
+                    <td> <%= result.TheroyMarkFinal %> /70 </td>
+                    <td> <%= result.PracticalMarkFinal %> /30 </td>
+                    <td> <%= result.TotalTheroyMark %> /130</td>
+                    <td> <%= result.TotalPracticalMark %> /70</td>
+                    <td> <%= result.TotalMark %> /200</td>                                     
+                </tr>
+               
+
+              <%  } %>
+              <tr class="total">
+                <td style="font-size: 25px;"> Total</td>
+                <td><%=  totalResult[0].TheroyMarkTermial %> /180</td>
+                <td><%=  totalResult[0].PracticalMarkTermial %> /120</td>
+                <td><%=  totalResult[0].TheroyMarkPre %> /180</td>
+                <td><%=  totalResult[0].PracticalMarkPre %> /120</td>
+                <td><%=  totalResult[0].TheroyMarkFinal %> /420</td>
+                <td><%=  totalResult[0].PracticalMarkFinal %> /180</td>
+                <td><%=  totalResult[0].TotalTheroyMark %> /780 </td>
+                <td><%=  totalResult[0].TotalPracticalMark %> /420</td>
+                <td><%=  totalResult[0].TotalMark %> /1200</td>
+            </tr>
+            <tr>
+                <td style="font-style: oblique; font-size: 30px;"> Parentage </td>
+                <td  colspan="8" style="text-align: left; font-style: oblique; font-size: 30px;"><%= parentage %>%</td>
+            </tr>
+
+            
+        </table>    
+        <a class="btnStyle" style="margin-left: 15%;"
+         href="/getAllStudentResult?pageNumber=3">Go Back</a>
+    
+</body>
+
+</html>

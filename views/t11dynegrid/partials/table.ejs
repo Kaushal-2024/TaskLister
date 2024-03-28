@@ -1,0 +1,42 @@
+
+<% if(fields != undefined ) { %>
+
+
+<%- include('./pagination'); %> 
+<link rel="stylesheet" href="/stylesheets/t11dynegrid/tablestyle.css">
+<table class="fl-table">
+    <caption class="Caption"> <%= fields[0].table %> data</caption>    
+    <thead>
+         <tr> 
+             <%
+                   for(field of fields){
+                      %> <th id="<%= field.name %>" class="queryParser">
+                        <img id="upArrow" src="/images/t11dynegrid/arrow.png" style="height: 25px ; width: 25px;">
+                        <%= field.name %>                           
+                        <img id="downArrow" src="/images/t11dynegrid/arrow.png" style="height: 25px ; width: 25px; transform: rotate(180deg);">
+                     </th>
+                      <%
+                 }
+             %>
+
+         </tr>
+     </thead>
+
+      <%   for(result of results){ %>
+         
+         <tr>
+             <%   for(field of fields){  %>
+
+             <td> <%= result[field.name] %> </td>   
+             <%  } %>        
+                      
+         </tr>
+       <%  } %>
+
+   
+ </table>  
+   <script src="/javascripts/t11dynegrid/tableScript.js"></script>
+ 
+ <% }else{ %>           
+    <%- include('./message'); %>
+    <% } %>

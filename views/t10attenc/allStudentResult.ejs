@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Student Result Details</title>
+    <link rel="stylesheet" href="/stylesheets/t10attenc/allStudentResult.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+    <%- include('partials/paginationResult'); %>
+        <table class="fl-table">
+           <caption class="Caption" >Students Result Details</caption>
+            
+            <thead>
+                <tr> 
+                    <th rowspan="2">Student Id</th>  
+                    <th rowspan="2">Student Name</th> 
+                    <th colspan="2">Termial</th>
+                    <th colspan="2">Prelimies</th>
+                    <th colspan="2">Final</th>
+                    <th colspan="2">Total</th>
+                    <th rowspan="2">TotalMark</th>
+                    <th rowspan="2"> Options</th>      
+                 </tr>
+                <tr>                    
+                   <th class = "subRow" >Theory</th>  
+                   <th class = "subRow" >Practical</th>
+                   <th class = "subRow" >Theory</th>
+                   <th class = "subRow" >Practical</th>
+                   <th class = "subRow" >Theory</th>
+                   <th class = "subRow" >Practical</th>
+                   <th class = "subRow" >TotalTheory</th>
+                   <th class = "subRow" >TotalPractical</th>     
+                           
+                </tr>
+            </thead>
+
+             <%   for(result of results){ %>
+                
+                <tr>                
+                    <td> <%= result.studentId %> </td>
+                    <td> <%= result.StudentName %> </td>
+                    <td> <%= result.TheroyMarkTermial %> </td>
+                    <td> <%= result.PracticalMarkTermial %> </td>
+                    <td> <%= result.TheroyMarkPre %> </td>
+                    <td> <%= result.PracticalMarkPre %> </td>
+                    <td> <%= result.TheroyMarkFinal %> </td>
+                    <td> <%= result.PracticalMarkFinal %> </td>
+                    <td> <%= result.TotalTheroyMark %> </td>
+                    <td> <%= result.TotalPracticalMark %> </td>
+                    <td> <%= result.TotalMark %> </td>                   
+                    <td> <a class="btnStyle" href="viewStudentResult/ <%= result.studentId %>">View Result</a></td>                 
+                </tr>
+
+
+              <%  } %>
+
+          
+        </table>    
+       
+    
+</body>
+
+</html>

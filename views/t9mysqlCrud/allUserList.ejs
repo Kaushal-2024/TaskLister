@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
-    <link rel="stylesheet" href="/stylesheets/allUserListstyle.css">
+    <link rel="stylesheet" href="/stylesheets/t9mysqlCrud/allUserListstyle.css">
 </head>
 
 <body>
@@ -39,8 +39,8 @@
                     <td>
                         <%= results[i].mobile_no %>
                     </td>
-                    <td><a class="btnStyle2" href="userDetails/<%=  results[i].id %>">Show Details</a>
-                        <a data-method="delete" class="btnStyle3"   href="deleteUser/<%= results[i].id %>" >Delete</a>
+                    <td><a class="btnStyle2" href="t9userDetails/<%=  results[i].id %>">Show Details</a>
+                        <a data-method="delete" class="btnStyle3"   href="t9deleteUser/<%= results[i].id %>" >Delete</a>
                     </td>
                 </tr>
                 <% } %>

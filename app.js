@@ -13,13 +13,11 @@ var app = express();
 const r1 = require('./routes/t8fileCrud/routerFile');
 const r2 = require('./routes/t9mysqlCrud/index');
 const r3 = require('./routes/t10attenc/index');
-const allRouter =  [r1,r2,r3]
+const r4 = require('./routes/t11dyngrid/index');
+const allRouter =  [r1,r2,r3,r4]
 
 
-allRouter.forEach(routes=>{
-  //console.log(routes);
-  app.use('/',routes)
-})
+
 
 
 // view engine setup
@@ -37,6 +35,10 @@ app.use(express.static(path.join(__dirname, 'public/Task')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+allRouter.forEach(routes=>{
+  //console.log(routes);
+  app.use('/',routes)
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
