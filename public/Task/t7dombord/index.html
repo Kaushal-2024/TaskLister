@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom event borad</title>
+    <link rel="stylesheet" href="/t7dombord/style.css">
+</head>
+<body onoffline="fireAlert(this)"  onfullscreenchange="fireAlert(this)" id="onfullscreenchange">
+    <h1>Event bord</h1>
+    <table class="board">
+        <tbody>
+          
+            <tr>
+                
+                <td class="light">
+                    <p>onClick</p>
+                    <p id="onClickEvent" onclick="displayDate()">display Date</p>
+                </td>
+                <td class="dark">
+                    <p>onblur(focos out)</p>
+                    <input type="text" onblur="focusOut()">
+                </td>
+                <td class="light">
+                    <p>onChange</p>
+                    <input id="onchange" type="text" onchange="fireAlert(this)">
+                </td>
+                <td class="dark">
+                    <p>oncontextmenu</p>
+                    <input id="oncontextmenu" type="text" oncontextmenu="fireAlert(this)">
+                </td>
+                <td class="light">
+                    <p>oncopy</p>
+                    <input id="oncopy" type="text" oncopy="fireAlert(this)" value="try to copy me">
+                </td>
+                <td class="dark">
+                    <p>cut</p>
+                    <input id="oncut" oncut="fireAlert(this)" value="try to cut me">
+                </td>
+                
+            </tr>
+            <tr>
+                
+                <td class="dark">
+                    <p>dblclick</p>
+                    <input id="ondblclick" type="button" ondblclick="fireAlert(this)" value="doble click">
+                </td>
+                <td class="light">
+                    <p>draggable</p>
+                    <input id="ondrag" type="type" ondrag="fireAlert(this)" value="drag me">
+                </td>
+                <td class="dark">
+                    <p>ondragend</p>
+                    <p id="ondragend" ondragend="fireAlert(this)">Darg me</p>
+                </td>
+              <td class="light">
+                    <p>ondragleave</p>
+                    <p id="ondragleave" ondragleave="fireAlert(this)" >Darg me and leave</p>
+                </td>
+                <td class="dark">
+                    <p>ondragover</p>
+                    <p id="ondragover" ondragover="fireAlert(this)" >Darg me and over</p>
+                </td>
+                <td class="light">
+                    <p>ondragstart</p>
+                    <p id="ondragstart" ondragstart="fireAlert(this)" >Darg me and start</p>
+                </td>
+               
+            </tr>
+            <tr>
+                
+                <td class="light">
+                    <p>ondrop</p>
+                    <p id="ondrop" ondrop="fireAlert(this)" >drop the</p>
+                </td>
+                <td class="dark">
+                    <p>onerror</p>
+                    <!-- <img id="onerror" onerror="fireAlert(this)" src="dm.jpg"> -->
+                    <p>give error when some sorce not found</p>
+                
+                </td>
+                <td class="light">
+                    <p> onfoucs</p>
+                    <input onfocus="fireAlert(this)" id="onfocus">
+                </td>
+                <td class="dark">
+                    <p> onfoucsin</p>
+                    <input onfocusin="fireAlert(this)" id="onfocusin">
+                </td>
+                <td class="light">
+                    <p> onfoucsout</p>
+                    <input onfocusout="fireAlert(this)" id="onfocusout">
+                </td>
+                <td class="dark">
+                    <p> onfullscreenchange</p>
+                    <input onfullscreenchange="fireAlert(this)" id="onfullscreenchange">
+                </td>
+                
+            </tr>
+            <tr>
+                
+                <td class="dark">
+                    <p>onkeydown</p>
+                    <input id="onkeydown" onkeydown="fireAlert(this)"
+                </td>
+                <td class="light">
+                    <p>onkeypress</p>
+                    <input id="keypress" onkeypress="fireAlert(this)">  
+                    
+                </td>
+                <td class="dark">
+                    <p>onkeyup</p>
+                    <input id="onkeyup" onkeyup="fireAlert(this)">  
+                </td>
+
+                <td class="light">
+                    <p>mousedown</p>
+                    <input id="onmousedown" onmousedown="fireAlert(this)">
+                </td>
+
+                <td class="dark">
+                    <p>onmouseup</p>
+                    <input id="onmouseup" onmouseup="fireAlert(this)">
+                </td>
+                <td class="light">
+                    <p>mousedown</p>
+                    <input id="onmousedown" onmousedown="fireAlert(this)">
+                </td>
+                
+            </tr>
+            <tr>
+                
+                <td class="light" ">
+                    <p id="onwheel" onwheel="fireAlert(this)">onwheel</p>
+                </td>
+                <td class="dark">
+                    <form action="#" id="onsubmit" onsubmit="fireAlert(this)">
+                        <input type="submit">
+                        </form>
+                </td>
+                <td class="light">
+                    <input value="select me" id="onselect" onselect="fireAlert(this)" >
+                </td>
+                <td class="dark">
+                    <input  value="search"  type="search" id="onsearch" onsearch="fireAlert(this)" >
+                    <p> search not support letest browser</p>
+                </td>
+                <td class="light">
+                    <input type="text" id="onpaste" onpaste="fireAlert(this)" value="Paste something here">
+                </td>
+                <td class="dark">
+                    <p id="ononline" ononline="fireAlert(this)">
+                    </td>
+               
+            </tr>
+            
+            
+        </tbody>
+    </table>
+    <script src="/t7dombord/script.js"></script>
+</body>
+</html>

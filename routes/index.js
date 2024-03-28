@@ -71,5 +71,11 @@ router.get('/hireX',async function(req, res, next) {
  
 });
 
+router.get('/domeBord',async function(req, res, next) {
+  
+  res.sendFile(path.join(__dirname+'/../public/Task/t7dombord/index.html'));
+ 
+});
+
 
 module.exports = router;
