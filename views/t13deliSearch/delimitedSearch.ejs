@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student attendance  Details</title>
+    <link rel="stylesheet" href="/stylesheets/t13deliSearch/searchFilter.css">
+    <link rel="stylesheet" href="/stylesheets/t13deliSearch/tablestyle.css" />
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+
+  
+           <div class="inputQuery">
+                <form method="POST" name="SearchInputForm"> 
+                    
+                                      
+                    <p class= "heading1"> Goti Lo tame goti lo </p>
+                    
+
+                    <table class="fl-table fixedtop" >
+                        <thead>
+                        <tr>
+                            <th>Filed</th>
+                            <th>Delimiter</th>
+                        </tr>
+                        <thead>
+                        <tr>
+                            <td>Fname</td>
+                            <td>_</td>
+                        </tr>
+                        <tr>
+                            <td>Lname</td>
+                            <td>^</td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td>$</td>
+                        </tr>
+                        <tr>
+                            <td>dob</td>
+                            <td>{</td>
+                        </tr>
+                        <tr>
+                            <td>content no</td>
+                            <td>}</td>
+                        </tr>
+                        <tr>
+                            <td>city</td>
+                            <td>:</td>
+                        </tr>
+                    </table>
+                    <div id ="inputID" >
+                        <input type="text" name="searchId" id ="searchId"  placeholder="search using given delimiter"   tabindex="1"                  
+                        <% if( searchObj != undefined ){ %>
+                            value="<%= searchObj.searchId %>"
+                        <% } %>
+                        autofocus >
+
+                        <div id="submitBtndiv" >
+                            <input type="submit" name="SubmitBtn" value="Search" id="submitBtn" class="btnStyle" tabindex="2">
+                        </div>
+                   </div>
+                </form>
+        </div>
+  
+     
+        <%- include('partials/table'); %>
+        
+      
+        <script src="/javascripts/t13deliSearch/searchFilter.js"></script>
+</body>
+
+</html>

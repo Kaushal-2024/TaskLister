@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: gilroy;
+    font-weight: bolder;
+}
+
+#paginationComponent{
+    
+    display: flex;
+    justify-content: center;
+
+}
+
+#paginationComponent >  a{
+    height: 50px;
+    width: 50px !important;
+    background-color: salmon;
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    border: 2px white solid;
+    border-radius: 25px;
+
+    margin: 5px;  
+    text-align: center;
+    padding-top: 6px;
+    transition: all ease 0.5s;
+}
+
+#paginationComponent > a:hover{
+  background-color: white;
+  
+  border: 2px black solid;
+}
+
+/* orderbycomponent style */
+
+#orderByComponent{
+   
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#orderByComponent > *{
+    height: 50px;
+    width: max-content;
+}

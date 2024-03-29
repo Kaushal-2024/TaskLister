@@ -1,0 +1,15 @@
+  <% if (totalRecord != undefined) { %>
+    <link rel="stylesheet" href="./stylesheets/pagination.css">
+    
+    <div id="paginationComponent">
+      <a id="firstPage" class="queryParsher"> <<  </a>
+      <a id="perviousPage"  class="queryParsher"> < </a>
+      <a id="currentPage"  class="queryParsher"> <%= pageCounter %> </a>
+      <a id="nextPage"  class="queryParsher"> > </a>
+      <a id="lastPage"  class="queryParsher"> >> </a>
+    </div>  
+    
+    <div>Total Record :<p id="totalRecord"> <%= totalRecord[0].totalRecord %> </p> </div>
+   
+    <script src="/javascripts/pagination.js"></script>  
+<% } %>
