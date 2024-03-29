@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>  
+    <% if(result != undefined ){ %>
+        Update
+    <% }else{ %>
+        Registration 
+    <% } %>
+    Form</title>
+    <link rel="stylesheet" href="/stylesheets/t14studentIU/formstyle.css">
+    
+</head>
+
+<body>
+   <div class="container">
+    <div class="main">
+        <h1>Student           
+                               
+                <% if(result != undefined ){ %>
+                    Update
+                <% }else{ %>
+                    Registration 
+                <% } %>
+
+                <% if(message == "true" ){ %>
+                    Done 💯
+                <% } %>  
+
+        </h1>
+        <form  method="POST" name="studentRegistrationForm" onsubmit="return validateForm()" >
+        <div class="inputDetailsCon">
+        <div>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Enter your first name" class="req m-b-30p" autofocus
+             <% if(result != undefined ){ %>
+                value="<%= result.fname %>"
+                <% } %>
+            >
+            
+            <label for="mname">Middle Name</label>
+            <input type="text" id="mname" name="mname" placeholder="Enter your middle name" class="req"
+            <% if(result != undefined ){ %>
+                value="<%= result.mname %>"
+                <% } %>
+            >
+
+            <label for="lname">Last Name</label>
+            <input type="text"  id="lname" name="lname" placeholder="Enter your Last name" class="req"
+            <% if(result != undefined ){ %>
+                value="<%= result.lname %>"
+            <% } %>
+            >
+
+            <label for="dob">Date of Birth</label>
+            <input type="text" id="dob" name="dob" placeholder="Enter your Date of Birth Ex:(dd/mm/yyyy)" class="req"
+            <% if(result == true){ %>
+
+                value = ""
+            
+            <% } else if(result != undefined ){ %>
+                value="<%= result.dob.split('-').reverse().join('/') %>"
+            <% } %>
+            >
+
+            
+           
+          
+
+            
+            <label for="mobile">Contact</label>
+            <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter your Mobile Number" class="req"  
+            <% if(result != undefined ){ %>
+            value="<%= result.cno %>"
+            <% } %>
+            >            
+            
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" class="req"    
+            <% if(result != undefined ){ %>
+            value="<%= result.email %>"
+            <% } %>
+            >
+        </div>
+            <div>
+
+           
+
+            <label for="add">Address</label>
+            <textarea id="add" name="add" placeholder="Enter your address" class="req"> <% if(result != undefined ){ %><%= result.address %><% } %></textarea>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="Enter your city" class="req"  
+            <% if(result != undefined ){ %>
+            value="<%= result.city %>"
+            <% } %>
+            >
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" placeholder="Enter your state" class="req" 
+            <% if(result != undefined ){ %>
+            value="<%= result.state %>"
+            <% } %>
+            >
+
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" placeholder="Enter your state" class="req"
+            <% if(result != undefined ){ %>
+            value="<%= result.country %>"
+            <% } %>
+            >
+
+            <label for="zipcode">Zipcode</label>
+            <input type="text" id="zipcode" name="zipcode" placeholder="Enter your zipcode" class="req"
+            <% if(result != undefined ){ %>
+            value="<%= result.zipcode %>" 
+            <% } %>
+            >
+
+            <label for="bgorup">Blood group</label>
+            <input type="text" id="bgorup" name="bgorup" placeholder="Enter your blood group" class="req"
+            <% if(result != undefined ){ %>
+            value="<%= result.bgroup %>"
+            <% } %>
+            >
+
+            </div>
+        </div>  
+
+            
+        <% if(result != undefined ){ %>
+           <input type="hidden" value="<%= result.stud_id %>" name="stud_id"
+            <% } %>
+
+
+            <div class="wrap">
+                <input class="button" type="submit"
+                name="submitBtn"
+                
+                <% if(result != undefined ){ %>
+                    value="update" 
+                    <% }else{ %>
+                        value="submit" 
+                <% } %>
+
+                >
+            </div>
+
+        </form>
+    </div>
+    <div id="message" class="message">
+    <% if( message != undefined && message != "true" ){ %>
+        <%- message %>
+    <% } %>    
+    </div>
+</div>
+    <script src="/javascripts/t14studentIU/formValidation.js"></script>
+    
+</body> 
+
+</html>
