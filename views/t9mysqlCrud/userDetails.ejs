@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/stylesheets/t9mysqlCrud/userDetailsstyle.css">
+
+</head>
+
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div>
+            <h1 class="title">Profile</h1>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main center">
+        <h2>User Details</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>FirstName</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].fname %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].lname %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].age %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].gender %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Number</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].mobile_no %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].email %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hobbies</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].hobbies %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td>
+                                <%= results[0].address %>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="center links">
+            <a class="btnStyle" href="/t9form">GO to Form</a>
+            <a class="btnStyle" href="/t9getAllUser">GO to List</a>
+        </div>
+        
+</body>
+
+</html>

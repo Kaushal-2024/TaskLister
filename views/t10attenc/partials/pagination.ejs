@@ -1,0 +1,53 @@
+  
+    <link rel="stylesheet" href="/stylesheets/t10attenc/pagination.css">
+    <div>Total Record :<p id="totalRecord"> <%= q1[0].counter %> </p> </div>
+    
+    <div id="paginationComponent">
+        <a id="firstPage" href=""> <<  </a>
+        <a id="perviousPage" href=""> < </a>
+        <a id="currentPage" href="" > <%= pageCounter %> </a>
+        <a id="nextPage" href=""> > </a>
+        <a id="lastPage" href=""> >> </a>
+    </div> 
+    
+    <div id="orderByComponent">
+    <select name="orderByDropdown" id="orderByDropdown">
+        <option selected disabled hidden > Set Order by Field</option>         
+        <% for(field of fields){
+           %> 
+           <option value="<%= field.name %>" >
+             <%=   field.name %>                                     
+           </option>
+           <%
+        }  %>
+    </select> 
+
+    
+    <select name="orderByTypeDropdown" id="orderByTypeDropdown">       
+        <option selected disabled hidden > Set Order by Type</option>         
+        <option value="asc" > Ascending  </option>      
+           <option value="desc" > Descending  </option>     
+          
+    </select> 
+
+   
+    <select name="monthDropdown" id="monthDropdown">     .
+        <option selected disabled hidden >Choose a Month </option>   
+           
+           <option value="12" > Dec</option>      
+           <option value="1" > Jan  </option>      
+           <option value="2" > Feb </option>             
+          
+    </select> 
+
+   
+    <select name="yearDropdown" id="yearDropdown">   
+        <option selected disabled hidden >Choose a Year </option>       
+           <option value="2023" > 2023</option>     
+           <option value="2024" > 2024</option>                       
+          
+    </select> 
+    </div>
+     
+   
+    <script src="/javascripts/t10attenc/pagination.js"></script>  

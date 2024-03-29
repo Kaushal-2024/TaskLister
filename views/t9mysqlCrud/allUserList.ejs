@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/stylesheets/t9mysqlCrud/allUserListstyle.css">
+</head>
+
+<body>
+    <div class="center">
+        <a href="/form" class="btnStyle">GO to From</a>
+    </div>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+
+
+            <% for (let i=0; i < results.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= results[i].fname %>
+                    </td>
+                    <td>
+                        <%= results[i].lname %>
+                    </td>
+                    <td>
+                        <%= results[i].email %>
+                    </td>
+                    <td>
+                        <%= results[i].mobile_no %>
+                    </td>
+                    <td><a class="btnStyle2" href="t9userDetails/<%=  results[i].id %>">Show Details</a>
+                        <a data-method="delete" class="btnStyle3"   href="t9deleteUser/<%= results[i].id %>" >Delete</a>
+                    </td>
+                </tr>
+                <% } %>
+        </table>    
+        <script>
+            document.getElementById('deleteUser').addEventListener('click',() => {
+
+                const id =4;
+                fetch(`/deleteUser/4`,{
+                    method:'DELETE'
+                })
+                .then(response =>{
+                    if(!response.ok){
+                        throw new Error("not ok error")
+                    }
+                    return response.json()
+                })
+                .then(error =>{
+                   alert("error : ",error)
+                })
+            })
+        </script>
+        
+</body>
+
+</html>

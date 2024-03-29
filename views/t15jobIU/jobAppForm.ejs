@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job application form using Table</title>
+    <link rel="stylesheet" href="/stylesheets/t15jobIU/jobAppStyle.css">
+    </style>
+    
+    
+</head>
+
+<body>
+
+    <div style="  font-size: 30px;        
+    position: absolute ;
+    left:1%;
+    ">
+
+        @Kasuhal Tarpara<br> 24DEV048
+
+</div>
+
+ 
+    <div id="msg">
+    <h1>Job Application Form
+    <p id="stmsg"></p>
+
+    </h1>
+    </div>
+
+    <div id="navbar" class="container">
+        <p class="0">Basic details</p>
+        <p class="1">Education </p>
+        <p class="2">work Exp</p>
+        <p class="3">lang know</p>
+        <p class="4">Tech know</p>
+        <p class="5">ref content</p>
+        <p class="6">pref</p>
+    </div>
+
+    <div >
+
+        <form method="POST" id="jobAppForm" name="jobApplicationForm" >
+        <!-- <form method="POST" name="jobApplicationForm"> -->
+           
+
+            <div id="basicDetails" class="main">
+
+                <h1 id="heading">Basic Details</h1>
+
+                <div class="container">
+                    <div>
+                        <div id="fnameDiv">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="fname" placeholder="Enter your first name" class="req"
+                                autofocus tabindex="1">
+                        </div>
+
+
+                        <div id="lnameDiv">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lname" placeholder="Enter your Last name" class="req" tabindex="2">
+                        </div>
+
+                        <div id="desiDiv">
+                            <label for="designation">Designation</label>
+                            <input type="text" id="designation" name="designation" placeholder="Enter your Designation"
+                                class="req" tabindex="3">
+                        </div>
+
+                        <div id="dobDiv">
+                            <label for="dob">Date of Birth</label>
+                            <input type="text" id="dob" name="dob" placeholder="Enter your Date of Birth (dd/mm/yyyy)"
+                                class="req" tabindex="4">
+                        </div>
+
+                        <div id="genderDiv">
+                            <label for="gender">Gender</label>
+                            <div class="container">
+                                <input type="radio" class="checkVal req" id="male" name="gender" value="m"  tabindex="5">
+                                <label for="male">Male</label>
+
+                                <input type="radio" class="checkVal req" id="female" name="gender" value="f"  tabindex="6">
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+
+                        <!-- <label for="age">Age</label>
+                    <input type="text" id="age" name="age" placeholder="Enter your age" >              -->
+
+                        <div id="mobileDiv">
+                            <label for="mobile">Contact</label>
+                            <input type="text" id="mobileNumber" name="mobileNumber"
+                                placeholder="Enter your Mobile Number" class="req" tabindex="7">
+                        </div>
+
+
+                        <div id="emailDiv">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" placeholder="Enter your email" class="req"  tabindex="8">
+                        </div>
+
+                    </div>
+
+                    <div>
+
+
+                        <div id="add1Div" class="req m-b-30p">
+                            <label for="add">Address 1</label>
+                            <textarea id="add1" name="add1" placeholder="Enter your address 1" class="req"  tabindex="9"></textarea>
+                        </div>
+
+                        <div id="add1Div" class="req m-b-30p">
+                            <label for="add">Address 2</label>
+                            <textarea id="add2" name="add2" placeholder="Enter your address 2" class="req"  tabindex="10"></textarea>
+                        </div>
+
+                        <div id="stateDiv">
+                            <label for="state">State</label>                        
+                            
+                            <select name="state" id="state" class="req"  tabindex="11">                              
+                            </select>
+                        </div>
+
+                        <div id="cityDiv">
+                            <label for="city">City</label>
+                            <select name="city" id="city" class="req"  tabindex="12">                         
+                            </select>
+                            
+                          
+                        </div>
+
+
+                        <div id="zipcodeDiv">
+                            <label for="zipcode">Zipcode</label>
+                            <input type="text" id="zipcode" name="zipcode" placeholder="Enter your zipcode" class="req"  tabindex="13">
+                        </div>
+
+                        <div id="relDiv">
+                            <label for="rstatus">RelationShip status</label>
+                            <select name="rstatus" id="rstatus" class="req"  tabindex="14">
+                                <option selected disabled hidden value="">--Select status--</option>
+                                <option value="s">single</option>
+                                <option value="m">mingl</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container jc-a">   
+                    <a id="basicDetailsPrev" class="button w-100p hidden"> < Previous </a>                
+                    <a id="basicDetailsNext" class="button w-100p" tabindex="14">Next ></a>
+                </div>
+            </div>
+
+            <div id="eduDetails" class="main m-b-30p ">
+
+                <div class="container centerSide">
+                    <h1 id="heading">Education Details</h1> 
+
+                    <div class="input-group">
+                        <p id="addEdu">+</p>
+                        <p id="removeEdu">-</p>           
+                    </div>
+
+                </div>
+
+                
+                    <div class="container">
+                        
+                        <div>
+                            <label for="CourseName">Course Name</label>
+                            <select name="CourseName" id="CourseName" class="req w-350p">
+                                <option selected disabled hidden value="">-- Select Course --</option>
+                                <option value="SSC">SSC</option>
+                                <option value="HSC">HSC</option>
+                                <option value="BCA">BCA</option>
+                                <option value="MCA">MCA</option>
+                            </select>                           
+                        </div>
+
+                        <div>
+                            <label for="py">Passing Year</label>
+                            <input class="req" ="text" id="SSCPassYear" name="PassYear" placeholder="yyyy">
+                        </div>
+                        
+                        <div>
+                            <label for="percentage">Percentage Year</label>
+                            <input class="req" type="text" id="SSCPercentage" name="Percentage" placeholder="99.99">
+                        </div>
+                    </div>   
+                    
+                          
+                    <div id="eduBtns" class="container jc-a">
+                        
+                            <a id="eduDetailsPrev" class="button w-100p"> < Previous </a>
+                            <a id="eduDetailsNext" class="button w-100p">Next ></a>
+                        
+                    </div>
+            </div>
+
+
+
+
+
+         
+
+            <div id="expDetails" class="main m-b-30p ">
+
+                <div class="container centerSide">
+                    <h1 id="heading">Exprianse Details</h1>
+
+                    <div class="input-group"  >
+                        <p id="addExp">+</p>
+                        <p id="removeExp">-</p>           
+                    </div>
+
+                </div>
+               
+
+                <div class="container">
+                    <div>
+                        <label for="cName1">Company name</label>
+                        <input class="req" ="text" id="cName1" name="comName" placeholder="esparkbiz">
+                    </div>
+
+                    <div>
+                        <label for="des1">Designation</label>
+                        <input class="req" type="text" id="des1" name="preDesignation" placeholder="web developer">
+                    </div>
+
+                    <div>
+                        <label for="fromDate1">Form</label>
+                        <input class="req" type="text" id="fromDate1" name="fromDate" placeholder="dd/mm/yyyy">
+                    </div>
+
+                    <div>
+                        <label for="toDate1">To</label>
+                        <input class="req" type="text" id="toDate1" name="toDate" placeholder="dd/mm/yyyy">
+                    </div>
+                </div>
+
+             
+                <div class="container jc-a" id="expBtn">
+                    <a id="expDetailsPrev" class="button w-100p"> < Previous </a>
+                    <a id="expDetailsNext" class="button w-100p">Next ></a>
+                </div>
+            </div>
+
+
+            <div id="langDetails" class="main m-b-30p">
+
+                <h1 id="heading">Language Details</h1>
+                <div class="container">
+                   
+                        <input type="checkbox" value="hindi" id="hindi" name="lang">
+                        <label for="hindi"> Hindi </label>                 
+
+                   
+                        <input type="checkbox" value="0" id="isReadhindi" class = "setDefVal"    name="read" >
+                        <label for="read"> Read </label>
+                                      
+                        <input type="checkbox" value="0" id="isWritehindi" class = "setDefVal"    name="write">
+                        <label for="write"> Write </label>                   
+
+                 
+                        <input type="checkbox" value="0" id="isSpeakhindi" class = "setDefVal"    name="speak">
+                        <label for="speak"> Speak </label>
+                  
+                         <input type="hidden" id="hindiId" name ="langIdArray">
+                    </div>
+
+                <div class="container">
+                    
+                        <input type="checkbox" value="english" id="english" name="lang">
+                        <label for="english"> english </label>
+                   
+                   
+                        <input type="checkbox" value="0" id="isReadenglish" class = "setDefVal"    name="read">
+                        <label for="read"> Read </label>
+                                      
+                        <input type="checkbox" value="0" id="isWriteenglish" class = "setDefVal"    name="write">
+                        <label for="write"> Write </label>         
+                 
+                        <input type="checkbox" value="0" id="isSpeakenglish" class = "setDefVal"    name="speak">
+                        <label for="speak"> Speak </label>
+
+                        <input type="hidden" id="englishId" name ="langIdArray">
+                    
+                </div>
+
+                <div class="container">
+                  
+                        <input type="checkbox" value="gujrati" id="gujrati" name="lang">
+                        <label for="gujrati"> gujrati </label>
+                   
+
+                  
+                        <input type="checkbox" value="0" id="isReadgujrati" class = "setDefVal"    name="read">
+                        <label for="read"> Read </label>
+                                      
+                        <input type="checkbox" value="0" id="isWritegujrati" class = "setDefVal"    name="write">
+                        <label for="write"> Write </label>                    
+                 
+                        <input type="checkbox" value="0" id="isSpeakgujrati" class = "setDefVal"    name="speak">
+                        <label for="speak"> Speak </label>
+
+                        <input type="hidden" id="gujratiId" name ="langIdArray">
+                   
+                </div>
+                <div class="container jc-a" >
+                    <a id="langDetailsPrev" class="button w-100p"> < Previous </a>
+                    <a id="langDetailsNext" class="button w-100p">Next ></a>
+                </div>
+            </div>
+
+
+            <div id="techDetails" class="main m-b-30p ">
+
+                <h1 id="heading">Technologies Details</h1>
+              
+                <div class="container">
+
+                    <input type="checkbox" value="php" name="tech" id="php">
+                    <label for="php"> PHP </label>
+
+                    <input type="radio" class= "radioCheckVal" value="beginner" name="php" id="phpbeginner">
+                    <label for="beginear"> Beginner </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="mediator" name="php" id="phpmediator">
+                    <label for="mediator"> Mediator </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="expert" name="php" id="phpexpert">
+                    <label for="expert"> Expert </label>
+
+                    <input type="hidden" id="phpId" name ="techIdArray">
+
+                </div>
+
+                <div class="container">
+
+                    <input type="checkbox" value="mysql"  name="tech"  id="mysql">
+                    <label for="php"> MySQl</label>
+
+                    <input type="radio" class= "radioCheckVal" value="beginner" name="mysql" id="mysqlbeginner">
+                    <label for="beginear"> Beginner </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="mediator" name="mysql" id="mysqlmediator">
+                    <label for="mediator"> Mediator </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="expert" name="mysql" id="mysqlexpert">
+                    <label for="expert"> Expert </label>
+
+                    <input type="hidden" id="mysqlId" name ="techIdArray">
+
+                </div>
+
+                <div class="container">
+
+                    <input type="checkbox" value="laravel"  name="tech"  id="laravel">
+                    <label for="php"> Laravel</label>
+
+                    <input type="radio"  class= "radioCheckVal" value="beginner" name="laravel" id="laravelbeginner">
+                    <label for="beginear"> Beginner </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="mediator" name="laravel" id="laravelmediator">
+                    <label for="mediator"> Mediator </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="expert" name="laravel" id="laravelexpert">
+                    <label for="expert"> Expert </label>
+
+                    <input type="hidden" id="laravelId" name ="techIdArray">
+
+                </div>
+
+                <div class="container">
+
+                    <input type="checkbox" value="oracle"  name="tech"  id="oracle">
+                    <label for="php"> Oracle</label>
+
+                    <input type="radio"  class= "radioCheckVal" value="beginner" name="oracle" id="oraclebeginner">
+                    <label for="beginear"> Beginner </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="mediator" name="oracle" id="oraclemediator">
+                    <label for="mediator"> Mediator </label>
+
+                    <input type="radio"  class= "radioCheckVal" value="expert" name="oracle" id="oracleexpert">
+                    <label for="expert"> Expert </label>
+
+                    <input type="hidden" id="oracleId" name ="techIdArray">
+
+                </div>
+
+                <input type="hidden" name="techLevelArray" id="techLevelArray" value="[]">
+                <div class="container jc-a">
+                    <a id="techDetailsPrev" class="button w-100p"> < Previous </a>
+                    <a id="techDetailsNext" class="button w-100p">Next ></a>
+                </div>
+            </div>
+
+            <div id="refDetails" class="main m-b-30p ">
+
+                <h1 id="heading">Reference Details</h1>                
+                   
+                    <div class="container">
+                        <div>
+                            <label for="refName">Name</label>
+                            <input type="text" id="r_name1" name="refName">
+                        </div>
+
+                        <div>
+                            <label for="refConNum">Content Number</label>
+                            <input type="text" id="con_number1" name="refConNum" >
+                        </div>
+
+                        <div>
+                            <label for="refRelation">Relation</label>
+                            <input type="text" id="relation1" name="refRelation" >
+                        </div>
+
+                        <input type="hidden" name="refArray" id="refArray1" >
+                    </div>
+
+                    <div class="container">
+                        <div>
+                            <label for="refName">Name</label>
+                            <input type="text" id="r_name2" name="refName">
+                        </div>
+
+                        <div>
+                            <label for="refConNum">Content Number</label>
+                            <input type="text" id="con_number2" name="refConNum" >
+                        </div>
+
+                        <div>
+                            <label for="refRelation">Relation</label>
+                            <input type="text" id="relation2" name="refRelation" >
+                        </div>
+
+                        <input type="hidden" name="refArray" id="refArray2" >
+                    </div>
+
+
+                    <div class="container jc-a">
+                        <a id="refDetailsPrev" class="button w-100p"> < Previous </a>
+                        <a id="refDetailsNext" class="button w-100p">Next ></a>
+                    </div>
+                </div>
+              
+
+                <div id="prefDetails" class="main m-b-30p ">
+
+                    <h1 id="heading">Preference Details</h1>            
+                    <div class="container">
+
+                    <div>
+                        <p>Preferd Location</p>
+                        <select name="ploca" id="ploca" multiple> 
+                            <option value="ahmededabad">Ahmededabad</option>
+                            <option value="rajkot">Rajkot</option>
+                            <option value="jamnagar">Jamnagar</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Department</p>
+                        <select name="dept" id="dept" >
+                            <option value="development">Development</option>
+                            <option value="design">Design</option>
+                            <option value="marketing">marketing</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="notPer">Notice period (Month)</label>
+                        <input class="req" type="text" id="notPer" name="notPer">
+
+                        <label for="exCTC">Expected CTC (LPA)</label>
+                        <input class="req" type="text" id="exCTC" name="exCTC">
+                        
+                        <label for="cuCTC">Curent CTC (LPA)</label>
+                        <input class="req" type="text" id="cuCTC" name="cuCTC">
+                    </div>
+
+                    <input type="hidden" name="prefArray" id="prefArray" value="[]">
+                    </div> 
+
+                    <div class="container jc-a">
+                        <a id="prefDetailsPrev" class="button w-100p"> < Previous </a>
+                        <!-- <input id="submitBtn" class="button " type="submit" value="submit" name="submitBtn"> -->
+                        <p id="submitBtn" class="button " value="submit" name="submitBtn">submit</p>
+                    
+                        <a id="prefDetailsNext" class="button w-100p hidden">Next ></a>
+
+
+                    </div>
+                </div>
+
+            <!-- <div class="wrap">
+                <input class="button" type="submit" value="submit" name="submitBtn">
+            </div> -->
+        </form>
+
+    </div>
+    
+    <script src="/javascripts/t15jobIU/statecity.js"></script>
+    <script src="/javascripts/t15jobIU/jobFormValidation.js"></script>
+    <script src="/javascripts/t15jobIU/componentGen.js"></script>
+   
+    <script src="/javascripts/t15jobIU/updateDataSetter.js"></script>
+    <script src="/javascripts/t15jobIU/maltiPartFrom.js"></script>
+
+    <script src="/javascripts/t15jobIU/submitDataWithAjex.js"> </script>
+    
+</body>
+</html>

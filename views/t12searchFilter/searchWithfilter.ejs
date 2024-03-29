@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student attendance  Details</title>
+    <link rel="stylesheet" href="/stylesheets/t12searchFilter/searchFilter.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+
+  
+           <div class="inputQuery">
+                <form method="POST" name="SearchInputForm"> 
+                    
+                    <input type="hidden" name="inputQRY" id ="inputQRY"                  
+                    <% if( searchObj != undefined ){ %>
+                        value="<%= searchObj.inputQRY %>"
+                    <% } %>
+                    >
+                    
+                    <p class= "heading1"> Goti Lo tame goti lo </p>
+                    
+                        <div id ="inputID" >
+                            <input type="text" name="searchId" id ="searchId"  placeholder="Enter Student Id for multiple id enter , separated Id"   tabindex="1"                  
+                            <% if( searchObj != undefined ){ %>
+                                value="<%= searchObj.searchId %>"
+                            <% } %>
+                            >
+
+                            <div id="submitBtndiv" >
+                                <input type="submit" name="SubmitBtn" value="Search" id="submitBtn" class="btnStyle" tabindex="2">
+                            </div>
+                        </div>
+                   
+                   <a id="showMore" class="btnStyle2" tabindex="3">Show More Search Options</a>
+                   
+                    <div id="SearchFilters" class="box">
+                        <input type="text" name="searchFname" id ="searchFname" class="inputStyle2" placeholder="Enter first name" 
+                        tabindex="4"
+                        <% if(searchObj != undefined ){ %>
+                            value="<%= searchObj.searchFname %>"
+                        <% } %>
+                        >
+
+                        <input type="text" name="searchDOB" id ="searchDOB" class="inputStyle2" placeholder="Ex : 12-02-2023" 
+                        tabindex="5"
+                        <% if(searchObj != undefined ){ %>
+                            value="<%= searchObj.searchDOB %>"
+                        <% } %>
+                        >
+
+                        <input type="text" name="searchCountry" id ="searchCountry" class="inputStyle2" placeholder="Ex : India" 
+                        tabindex="6"
+                        <% if(searchObj != undefined ){ %>
+                            value="<%= searchObj.searchCountry %>"
+                        <% } %>
+                        >
+
+                        <input type="text" name="searchCno" id ="searchCno" class="inputStyle2" placeholder="Ex : 9923232323" 
+                        tabindex="7"
+                        <% if(searchObj != undefined ){ %>
+                            value="<%= searchObj.searchCno %>"
+                        <% } %>
+                        >
+                    </div>
+
+                    
+      
+      
+                    
+                   
+
+                </form>
+        </div>
+  
+     
+        <%- include('partials/table'); %>
+        
+      
+        <script src="/javascripts/t12searchFilter/searchFilter.js"></script>
+</body>
+
+</html>

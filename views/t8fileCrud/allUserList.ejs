@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/stylesheets/t8fileCrud/allUserListstyle.css">
+</head>
+<body>
+    <div class="center">
+        <a href="/form" class="btnStyle">GO to From</a>
+    </div>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+           <th>First Name</th><th>LastName</th><th>Email</th><th>Number</th><th>Details</th>
+        </tr>
+        </thead>
+
+     
+        <% for (let i = 0; i < users.length;  i++) { %>
+         <tr>
+           <td><%= users[i].first %></td>
+           <td><%= users[i].last %></td>
+           <td><%= users[i].email %></td>
+           <td><%= users[i].mobile %></td>
+           <td><a class="btnStyle2" href="userDetails/<%= users[i].id %>">Show Details</a></td>
+         </tr>    
+        <% } %>
+     </table>
+    
+</body>
+</html>

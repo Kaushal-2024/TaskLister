@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 20px;
+}
+
+body{
+    font-family: Helvetica;    
+    -webkit-font-smoothing: antialiased;
+    background:wheat;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Table Styles */
+
+
+
+.fl-table {
+    
+    border-radius: 5px;    
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 20%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */

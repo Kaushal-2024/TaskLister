@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student attendance  Details</title>
+    <link rel="stylesheet" href="/stylesheets/t11dynegrid/dynamicGrid.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+    
+    
+        <div class="inputQuery">
+                <form method="POST" name="queryInputForm"> 
+                   
+                    <input type="text" name="inputQRY" id ="inputQRY" class="inputStyle" placeholder="Enter Query"                    
+                    <% if(sql != undefined ){ %>
+                        value="<%= sql %>"
+                    <% } %>
+                    >
+
+                    <input type="submit" name="SubmitBtn" value="See result" id="submitBtn" class="btnStyle">
+                </form>
+        </div>
+  
+     
+        <%- include('partials/table'); %>
+      
+        <script src="/javascripts/t11dynegrid/dynamicGrid.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 20px;
+    font-family: gilroy;
+    font-weight: bolder;
+}
+
+
+body{
+    font-family: Helvetica;    
+    -webkit-font-smoothing: antialiased;
+    background: rgba( 71, 147, 227, 1);
+}
+.inputQuery{
+    display: flex;
+    justify-content: center;
+}
+
+.heading1{
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+.lblStyle1{
+    font-size: 30px;
+    font-family: gilroy;
+    font-weight: bolder;
+}
+
+
+#searchId{
+    height: 40px ;
+    border-radius: 10px;
+    width: 700px;
+}
+.inputStyle2{
+    height: 35px ;
+    border-radius: 10px;
+    width: 170px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnStyle {
+    background: #f39c12;
+    color: #fff;
+    /* position: absolute; */
+    padding: 0.35rem 1rem;
+    font-size: 18px;
+    font-weight: 600;    
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+.btnStyle:hover {
+    background: #fff;
+    box-shadow: 0px 2px 20px 10px #97B1BF;
+    color: #000;
+}
+
+.btnStyle2 {
+
+    background: #f31230c9;
+    color: #fff;
+    padding: 0.35rem 1rem;
+    font-size: 18px;
+    font-weight: 600;    
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+
+.btnStyle2:hover {
+    background: #fff;
+    box-shadow: 0px 2px 20px 10px #97B1BF;
+    color: #000;
+}
+
+h2{
+    text-align: center;
+    
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+
+.show{
+    visibility: visible;
+    transition: all ease 2s;
+}
+.hide{
+    display: none ;   
+}
+
+.inputQuery > * >*{
+    margin: 30px;
+}
+
+.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#inputID{
+    display: flex;
+    gap :5px;
+   
+}
+
+.moveBtn{       
+    transform: translate(-700px,150px);
+}
+
+.moveBtn2{   
+    position: absolute;    
+    transform: translate(-900px,0px);
+}

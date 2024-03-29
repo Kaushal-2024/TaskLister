@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Gilroy;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --white: #ffffff;
+    --dark: #0A2259;
+    --blue: #6A88B6;
+    --lightBlue: #F0F6FF;
+    --orange: #F2A33A;
+    --textGray: #AAAAAA;
+
+    /* snytex var(--blue) */
+}
+
+header {
+    background-color: var(--lightBlue);
+}
+
+.container {
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.col {
+    width: calc(100%/2);
+    padding: 0 15px;
+
+}
+
+.col5 {
+    width: calc(100%/5);
+    padding: 0 15px;
+}
+
+/* header styleing */
+
+#navStyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+
+}
+
+#mainLogo {
+    content: url(./img/awamlogo.png);
+    border-radius: 15px;
+    height: 60px;
+    width: 300px;
+}
+
+ul {
+    list-style: none;
+    column-count: 5;
+}
+
+li {
+    height: 100%;
+}
+
+
+#login {
+    border: 2px solid black;
+    height: 35px;
+    width: 8ch;
+    text-align: center;
+}
+
+#sec1 {
+    width: 100dvw;
+    /* padding: 100px 10%; */
+    /* height: 90dvh; */
+    background-color: var(--lightBlue);
+}
+
+#mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+}
+
+#sec1>div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 150px 0px;
+}
+
+.mainContent>h2 {
+    font-size: 116px;
+}
+
+.mainContent>p {
+    font-size: 20px;
+    padding-right: 100px;
+    margin: 30px 0;
+}
+
+.someLinks>.btn1 {
+    background-color: var(--orange);
+    height: 40px;
+    width: max-content;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid var(--orange);
+    color: white;
+}
+
+.someLinks>.btn2 {
+    border: 2px solid black;
+    height: 40px;
+    width: max-content;
+    text-align: center;
+    padding: 5px;
+
+}
+
+#downArrow {
+    margin-top: 50px;
+    height: 50px;
+    width: 50px;
+    content: url('https://toppng.com/uploads/preview/down-arrow-icon-down-arrow-icon-11553390585lzb4uwvspb.png');
+
+}
+
+/* section 1.2 style */
+
+.col5 {
+    width: calc(100%/5);
+    background-repeat: no-repeat;
+    background-position: center;
+    max-height: 500px;
+}
+
+.textCenter {
+    padding: 100px 20px;
+}
+
+/* section 2 style */
+
+#sec2 {
+    /* height: 100dvh; */
+    padding: 200px 0;
+}
+
+.heading>h2 {
+    font-size: 75px;
+}
+
+#sec2content>* {
+    margin-bottom: 50px;
+}
+
+#sec2content>div>div>h3 {
+    font-size: 30px;
+    color: var(--blue);
+
+}
+
+#sec2content>div>div>p {
+    font-size: 20px;
+    color: var(--textGray);
+}
+
+
+/* section 3 style */
+
+#sec3 {
+    /* height: 100%; */
+    padding: 100px 0;
+    background-color: lightblue;
+}
+
+#sec3content>.heading {
+    margin: 50px;
+}
+
+.sec3box {
+    height: 500px;
+    /* width: min-content; */
+    color: var(--lightBlue);
+    background-color: var(--white);
+    margin: auto 0;
+    padding: 30px 40px;
+}
+
+.sec3box>p {
+    font-size: 50px;
+    margin: 40px 0px;
+}
+
+.sec3box>a {
+    font-size: 25px;
+    background-color: var(--white);
+    color: var(--dark);
+    border: 1px solid var(--dark);
+    text-decoration: none;
+    padding: 15px 0px;
+    display: block;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+
+}
+
+#subBox {
+    background-color: var(--lightBlue);
+    color: var(--dark);
+    height: 230px;
+    border-radius: 10px;
+}
+
+#subBox>.icon {
+    float: left;
+    margin: 10px 40px;
+
+}
+
+.icon {
+    border-radius: 50%;
+    padding: 0;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}
+
+.box>* {
+    padding: 20px 20px;
+
+}
+
+.sec3box {
+    color: var(--dark);
+}
+
+#sec3content>div>h2 {
+    text-align: center;
+    font-size: 75px;
+    padding: 0 200px;
+}
+
+.sec3box:hover {
+    background-color: var(--dark);
+    color: var(--white);
+    transition: all ease .7s;
+}
+.sec3box:hover > .child{
+    background-color: var(--orange);
+    color: var(--white);
+    border: 1px solid var(--dark);
+}
+.gap {
+    gap: 20px;
+}
+
+/* section 4 style */
+
+#sec4 {
+    padding: 200px 0;
+    height: 900px;
+}
+
+.tabButton {
+    display: flex;
+    height: 100px;
+    padding: 40px;
+    margin: 15px;
+    align-items: center;
+    width: 300px;
+    background-color: var(--lightBlue);
+
+}
+
+.tabButton>* {
+    padding: 20px;
+}
+
+.tabButton:hover {
+    background-color: rgba(65, 105, 225, 0.404);
+}
+
+#tabSection {
+    /* background-color: #6A88B6; */
+    width: 100%;
+    padding: 20px 60px;
+}
+
+#tabSection>* {
+    padding: 10px 50px;
+}
+
+#tabHeading {
+    font-size: 40px;
+    color: var(--dark);
+}
+
+#tabDesc {
+    font-size: 20px;
+    color: var(--textGray);
+}
+
+.iconRight {
+    height: 25px;
+    width: 25px;
+    background-color: #b7c5bf68;
+    border: none;
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 10px;
+    content: url("https://cdn.iconscout.com/icon/free/png-256/free-right-true-verify-perfect-trust-64-32776.png");
+}
+
+.disflex , .features{
+    display: flex;
+}
+/* section 5 style */
+
+.sec5Card {
+    height: 350px;
+    min-width: 300px; 
+    margin: 0 20px;  
+    border: 1px solid black;    
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 5px solid var(--lightBlue);
+}
+
+.alignCen{
+    justify-content: space-between;
+}
+.sliderButton{
+    display: flex;
+    margin: 30px;
+}
+.sliderButton > div > img{
+    height: 30px;
+    width: 30px;    
+}
+
+.sliderButton > div > img:hover{
+    height: 40px;
+    width: 40px;
+    transition: all ease 10ms;
+}
+
+.sliderButton > div{
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+    background-color: var(--lightBlue);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.rowSec5{
+  /* overflow-y: hidden; */
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+
+}
+
+/* section 6 style */
+
+#sec {
+    height: 600px;
+}
+
+#sec6>div>div>div>* {
+    margin: 60px 10px;
+}
+
+#sec6Tagline {
+    font-size: 60px;
+}
+
+/* main Content is similar to sec1 content */
+
+
+/* footer section style */
+
+footer{
+    height: 400px;
+    background-color: var(--dark);
+    color: white;
+    padding : 40px;
+}
+
+footer > div > div > div > *{
+    margin: 20px;
+}
+
+#fDetials > div > h3{
+    font-size: 30px;
+}
+
+#fDetials > div > p {
+    font-size: 20px;
+    margin: 20px;
+}
+

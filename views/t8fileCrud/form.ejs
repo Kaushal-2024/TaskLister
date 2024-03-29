@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="stylesheets/t8fileCrud/formstyle.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Form</h1>
+        <form  method="POST" >
+            <label for="first">First Name:</label>
+            <input type="text" id="first" name="first" placeholder="Enter your first name" >
+
+            <label for="last">Last Name:</label>
+            <input type="text" id="last" name="last" placeholder="Enter your last name" >
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" >
+
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age" >
+
+            <label for="mobile">Contact:</label>
+            <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile Number"  maxlength="10">
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="hoobies">Hoobies:</label>
+
+                <div class="box " id="hoobies" name="hoobies">
+                    <input type="checkbox" id="swimming" name="hobbies" value="swimming"><label for="swimming"><span></span>swimming</label>
+
+                    <input type="checkbox" id="cycling" name="hobbies" value="cycling"><label for="cycling"><span></span>Cycling</label>
+                </div>
+                    <div class="box " id="hoobies" name="hoobies">
+                  <input type="checkbox" id="reading" name="hobbies" value="reading"><label for="reading"><span></span>Reading</label>
+
+                    <input type="checkbox" id="climbing" name="hobbies" value="climbing"><label for="climbing"><span></span>Climbing</label>
+                </div>
+           
+
+            <label for="add">Address:</label>
+            <textarea id="add" name="add" placeholder="Enter your address" ></textarea>
+
+
+            <div class="wrap">
+                <button type="submit" >
+                    Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
