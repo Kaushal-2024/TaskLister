@@ -18,8 +18,9 @@ const r5 = require('./routes/t12searchFilter/index');
 const r6 = require('./routes/t13deliSearch/index');
 const r7 = require('./routes/t14studentIU/index');
 const r8 = require('./routes/t15jobIU/index');
+const r9 = require('./routes/t16jsonpl/index');
 
-const allRouter =  [r1,r2,r3,r4,r5,r6,r7,r8]
+const allRouter =  [r1,r2,r3,r4,r5,r6,r7,r8,r9]
 
 
 
@@ -41,7 +42,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 allRouter.forEach(routes=>{
-  //console.log(routes);
+  // console.log(routes);
   app.use('/',routes)
 })
 // catch 404 and forward to error handler

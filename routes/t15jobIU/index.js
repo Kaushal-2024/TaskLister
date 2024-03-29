@@ -103,10 +103,10 @@ router.get('/getCityData/:sid',function(req, res, next) {
 
 
 
-// default handler
-router.get('*', function(req, res, next) {
-  res.render('./t15jobIU/totleRegisteredRouts',{routes:router.stack});
-});
+// // default handler
+// router.get('*', function(req, res, next) {
+//   res.render('./t15jobIU/totleRegisteredRouts',{routes:router.stack});
+// });
 
 
 
