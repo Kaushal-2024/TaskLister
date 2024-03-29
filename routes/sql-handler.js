@@ -1,4 +1,4 @@
-const dbConn = require('../connection')
+let dbConn = require('../connection')
 const crypto = require('crypto'); 
 const md5 = require('md5');
 

@@ -14,7 +14,9 @@ const r1 = require('./routes/t8fileCrud/routerFile');
 const r2 = require('./routes/t9mysqlCrud/index');
 const r3 = require('./routes/t10attenc/index');
 const r4 = require('./routes/t11dyngrid/index');
-const allRouter =  [r1,r2,r3,r4]
+const r5 = require('./routes/t12searchFilter/index');
+
+const allRouter =  [r1,r2,r3,r4,r5]
 
 
 

@@ -1,0 +1,32 @@
+<% if(fields != undefined ) { %>
+
+<link rel="stylesheet" href="/stylesheets/t12searchFilter/tablestyle.css" />
+<table class="fl-table">
+  <caption class="Caption">
+    <%= fields[0].table %> data
+  </caption>
+  <thead>
+    <tr>
+      <% for(field of fields){ %>
+      <th id="<%= field.name %>" class="queryParser">
+      
+        <%= field.name %>
+       
+      </th>
+      <% } %>
+    </tr>
+  </thead>
+  <% if(results.length != 0 ) { %> <% for(result of results){ %>
+
+  <tr>
+    <% for(field of fields){ %>
+
+    <td><%= result[field.name] %></td>
+    <% } %>
+  </tr>
+
+  <% } %> <% }else{ %> <%- include('./RecordMessage'); %> <% } %>
+</table>
+
+
+<% }else{ %> <%- include('./message'); %> <% } %>

@@ -1,8 +1,6 @@
 var express = require('express');
 const router  =  express.Router();
 
-
-
 const path = require('path')
 const sql = require('./sql-handler');
 
