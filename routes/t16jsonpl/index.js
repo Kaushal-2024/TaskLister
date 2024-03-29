@@ -11,9 +11,5 @@ router.get('/posts/:postId', function(req, res, next) {
   res.render('./t16jsonpl/postDetails');
 });
 
-// default handler
-router.get('*', function(req, res, next) {
-  res.render('totleRegisteredRouts',{routes:router.stack});
-});
 
 module.exports = router;
