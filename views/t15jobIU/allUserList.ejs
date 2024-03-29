@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/stylesheets/t15jobIU/allUserListstyle.css">
+</head>
+<body>
+    <div class="center">
+        <a href="/jobRegistration" class="btnStyle">GO to From</a>
+    </div>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+           <th>First Name</th><th>LastName</th><th>Email</th><th>Number</th><th>Operations</th>
+        </tr>
+        </thead>
+
+     
+        <% for (let i = 0; i < result.length;  i++) { %>
+         <tr>
+           <td><%= result[i].fname %></td>
+           <td><%= result[i].lname %></td>
+           <td><%= result[i].email %></td>
+           <td><%= result[i].phoneno %></td>
+           <td><a class="btnStyle2" href="/jobUpdate/<%= result[i].b_id %>">Update</a></td>
+         </tr>    
+        <% } %>
+     </table>
+    
+</body>
+</html>
