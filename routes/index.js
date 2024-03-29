@@ -1,6 +1,6 @@
 var express = require('express');
 const router  =  express.Router();
-
+const uuid = require("uuid");
 const path = require('path')
 const sql = require('./sql-handler');
 
@@ -8,6 +8,35 @@ const sql = require('./sql-handler');
 
 router.get('/login', function(req, res, next) {
   res.render('login');
+});
+
+
+router.post('/login',async function(req, res, next) {
+  let obj = JSON.parse(JSON.stringify(req.body));
+  console.log(obj);
+  let reso = await sql.checkUserAndPass(obj)
+  console.log("respon form sql",{reso});
+
+  const sessionToken = uuid.v4();
+  const expiresAt = new Date().setFullYear(new Date().getFullYear() + 1);
+
+  sessions[sessionToken] = {
+    expiresAt,
+    userId: user.id,
+  };
+
+  res.cookie("session_token", sessionToken, { maxAge: expiresAt });
+
+  res.send({reso})
+  // if(reso ==  "done"){
+  //  res.redirect('/dashboard')
+  //  return 
+    
+  // }else{
+  //   res.send({reso})
+  // }
+
+  // res.render('login');
 });
 
 router.get('/dashboard',async function(req, res, next) {
@@ -48,23 +77,6 @@ router.get('/confirmReg/:a_code',async function(req, res, next) {
   }
 });
 
-router.post('/checkLogin',async function(req, res, next) {
-  let obj = JSON.parse(JSON.stringify(req.body));
-  console.log(obj);
-  let reso = await sql.checkUserAndPass(obj)
-  console.log("respon form sql",{reso});
-
-  res.send({reso})
-  // if(reso ==  "done"){
-  //  res.redirect('/dashboard')
-  //  return 
-    
-  // }else{
-  //   res.send({reso})
-  // }
-
-  // res.render('login');
-});
 
 
 router.get('/getAllEmailId',async function(req, res, next) { 

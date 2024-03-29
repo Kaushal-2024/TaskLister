@@ -49,6 +49,7 @@ function showMoreSearchFilter(event){
 
 showMore.addEventListener('keydown',onEvent);
 showMore.addEventListener('click',showMoreSearchFilter);
+
 SearchFilters.className = 'hide'
 
 

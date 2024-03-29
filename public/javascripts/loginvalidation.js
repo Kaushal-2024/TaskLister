@@ -2,13 +2,13 @@ function validateJobForm() {
     let isValid = true;
 
     let removeVal = document.querySelectorAll(".tempValMes");
-    // old validation msg remove
+   
     for (ele of removeVal) {
         ele.remove();
     }
 
     let inputs = document.querySelectorAll(`input`);
-    console.log("ane break akrvan oice", inputs);
+   
 
     isValid = validateReqFields(inputs)
 
@@ -66,7 +66,7 @@ async function regBtn() {
     if (validateJobForm()) {      
 
         obj = new URLSearchParams(new FormData(document.getElementById('loginForm')))
-        let msg = await fetch('/checkLogin', {
+        let msg = await fetch('/login', {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -74,8 +74,8 @@ async function regBtn() {
             body: obj
         })
         msg = await msg.json()
-
         if(msg.reso == "done"){
+            document.getElementById('fgBtn').innerText=""
            // console.log("dashbord jav");    
             window.location.href = "/dashboard"
         }else{
