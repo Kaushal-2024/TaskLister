@@ -4,6 +4,7 @@ const uuid = require("uuid");
 const path = require('path')
 const sql = require('./sql-handler');
 
+const sessions = {};
 
 
 router.get('/login', function(req, res, next) {
@@ -13,20 +14,21 @@ router.get('/login', function(req, res, next) {
 
 router.post('/login',async function(req, res, next) {
   let obj = JSON.parse(JSON.stringify(req.body));
-  console.log(obj);
+  console.log("from mathi madel obj",obj);
   let reso = await sql.checkUserAndPass(obj)
   console.log("respon form sql",{reso});
 
-  const sessionToken = uuid.v4();
-  const expiresAt = new Date().setFullYear(new Date().getFullYear() + 1);
+  
+  if(reso == "done"){
+    const sessionToken = uuid.v4();
+    const expiresAt = new Date().setFullYear(new Date().getFullYear() + 1);
+    sessions[sessionToken] = {
+      expiresAt,
+      userId: obj.email,
+    };
 
-  sessions[sessionToken] = {
-    expiresAt,
-    userId: user.id,
-  };
-
-  res.cookie("session_token", sessionToken, { maxAge: expiresAt });
-
+    res.cookie("session_token", sessionToken, { maxAge: expiresAt });
+  }
   res.send({reso})
   // if(reso ==  "done"){
   //  res.redirect('/dashboard')
@@ -40,6 +42,23 @@ router.post('/login',async function(req, res, next) {
 });
 
 router.get('/dashboard',async function(req, res, next) {
+  
+  const sessionToken = req.cookies["session_token"];
+
+  if (!sessionToken) {
+    return res.redirect('/login');
+  }
+
+  const currentUserSession = sessions[sessionToken];
+
+  if (!currentUserSession) {
+   return res.redirect('/login');
+  }
+
+  if (currentUserSession.expiresAt < new Date()) {
+    return res.redirect('/login');
+  }
+  
   console.log("got to dashboard route");
 
   res.render('dashboard');
