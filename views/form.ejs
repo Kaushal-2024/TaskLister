@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="stylesheets/formstyle.css">
+</head>
+
+<body>
+    <div style="  font-size: 30px;  position: absolute ; left:1%;">
+        @Kasuhal Tarpara<br> 24DEV048
+    </div>
+
+
+    <div class="main">
+        <h1>User Registration</h1>
+        <form method="POST" id="regForm" name="regForm">
+            <div>
+            <label for="first">First Name:</label>
+            <input type="text" id="first" name="first" placeholder="Enter your first name" tabindex="1" autofocus>
+            </div>
+
+            <div>
+            <label for="last">Last Name:</label>
+            <input type="text" id="last" name="last" placeholder="Enter your last name" tabindex="2">
+        </div>
+
+            <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" tabindex="3">
+        </div>
+
+        <div>
+            <label for="mobile">Contact:</label>
+            <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile Number" tabindex="4">
+        </div>
+
+        <div>
+            <label for="password">Password :</label>
+            <input type="text" id="password" name="password" placeholder="Enter your password" tabindex="5">
+        </div>
+
+        <div>
+            <label for="conPass">confirm Password :</label>
+            <input type="text" id="conPass" name="conPass" placeholder="Enter your confirm password" tabindex="6">
+        </div>
+            
+            <div class="wrap" >          
+           
+
+                <p id="resBtn" class="subBtn" tabindex="8">
+                       Reset 
+                </p>
+
+                <p id="regBtn" class="subBtn" tabindex="7">
+                    Create Your account
+                </p>
+            </div>
+           
+           
+        </form>
+    </div>
+    <p id="stmsg"></p>
+    <script src="/javascripts/validation.js"></script>
+</body>
+
+</html>

@@ -5,9 +5,47 @@ const path = require('path')
 const sql = require('./sql-handler');
 
 
-/* GET home page. */
+
 router.get('/login', function(req, res, next) {
   res.render('login');
+});
+
+router.get('/dashboard',async function(req, res, next) {
+  console.log("got to dashboard route");
+
+  res.render('dashboard');
+});
+
+
+
+router.get('/regUser', function(req, res, next) {
+  res.render('form');
+});
+
+router.post('/regUser',async function(req, res, next) {
+  let obj = JSON.parse(JSON.stringify(req.body)) 
+
+  let activation_code = await sql.insertUser(obj)    
+
+  res.send({activation_code});
+  
+  
+});
+
+
+router.get('/confirmReg/:a_code',async function(req, res, next) {
+  console.log("from confrim page" ,req.params.a_code);
+  let checkeTime =await  sql.isCodeActivated(req.params.a_code)
+
+  if(checkeTime){
+    
+     sql.updateStates(req.params.a_code)
+     res.render('regConfirm');
+
+  }else{
+
+   res.redirect('/regUser')
+  }
 });
 
 router.post('/checkLogin',async function(req, res, next) {
@@ -29,11 +67,14 @@ router.post('/checkLogin',async function(req, res, next) {
 });
 
 
-router.get('/dashboard',async function(req, res, next) {
-  console.log("got to dashboard route");
-
-  res.render('dashboard');
+router.get('/getAllEmailId',async function(req, res, next) { 
+  
+  let allEmail = await sql.getAllEmail()    
+  
+  res.send(JSON.parse(JSON.stringify(allEmail)));
 });
+
+
 
 
 router.get('/dynemicTable',async function(req, res, next) {
