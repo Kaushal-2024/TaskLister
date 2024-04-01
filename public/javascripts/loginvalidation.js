@@ -96,14 +96,12 @@ async function regBtn() {
 
 
 function validateEmail(emailValue){
-
     
     const validEmailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;    
     if(!emailValue.value.match(validEmailRegex)){        
         valMessageGenrator(emailValue," valid form ")
         return false ;        
-    }  
-   
+    }     
     return true;
 }
 

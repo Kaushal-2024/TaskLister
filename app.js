@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const session = require('express-session');
+const passport = require('passport');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -24,7 +25,13 @@ const r10 = require('./routes/t17timezone/index');
 const allRouter =  [r1,r2,r3,r4,r5,r6,r7,r8,r9,r10]
 
 
-
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // view engine setup
