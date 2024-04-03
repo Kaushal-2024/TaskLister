@@ -4,6 +4,12 @@ require("dotenv").config();
 
 // const sessions = {};
 
+const logOut = function (req, res, next) {
+    res.clearCookie('token')
+    res.redirect("/login");
+}
+
+
 const loginGet = function (req, res, next) {
   res.render("login");
 }
@@ -73,5 +79,5 @@ const getAllEmailId = async function (req, res, next) {
 }
 
 module.exports = {
- loginGet,loginPost,dashboard,regUserGet,regUserPost,confirmReg,getAllEmailId
+    logOut,loginGet,loginPost,dashboard,regUserGet,regUserPost,confirmReg,getAllEmailId
 }

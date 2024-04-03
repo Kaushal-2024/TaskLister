@@ -24,6 +24,7 @@ router.route("/regUser").get(index.regUserGet)
 router.route("/regUser").post(index.regUserPost)
 router.route("/confirmReg/:a_code").get(index.confirmReg)
 router.route("/getAllEmailId").get(index.getAllEmailId)
+router.route("/logout").get(index.logOut)
 
 
 
@@ -90,6 +91,7 @@ router.route("/getCityData/:sid").get(isLoggedIn,t15jobIU.getCityData)
 //task 16 JSON Plase holder api task
 router.route("/posts").get(isLoggedIn,t16json.getAllPost)
 router.route("/posts/:postId").get(isLoggedIn,t16json.getPostById)
+
 
 // task 17 timeZone 
 router.route("/timeZone").get(isLoggedIn,t17timezone.timeZone)
