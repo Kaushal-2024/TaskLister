@@ -1,14 +1,10 @@
-var express = require('express');
-var router = express.Router();
 const sql = require('./sql-helper-insert')
 const sqlUpdate = require('./sql-helper-update')
 var dbConn = require('../../connection')
 
 
 
-/* GET job application */
-
-router.get('/allJobApplicantList',function(req,res,next){ 
+const getAllJobApplicanteData = function(req,res,next){ 
     
    dbConn.query("SELECT * FROM db_jobApp_15march.tbl_basictDetails",(err,result)=>{
 
@@ -18,17 +14,16 @@ router.get('/allJobApplicantList',function(req,res,next){
 
       res.render("./t15jobIU/allUserList", { result })
     }
-   }); 
-    
+   });    
   
  
-});
+}
 
-router.get('/jobRegistration', function(req, res, next) {
+const jobRegistrationGet = function(req, res, next) {
   res.render('./t15jobIU/jobAppForm');
-});
+}
 
-router.post('/jobRegistration',async function(req, res, next) {
+const jobRegistrationPost =  async function(req, res, next) {
   console.log(req.body)
 
   let reqObj = req.body;
@@ -38,17 +33,15 @@ router.post('/jobRegistration',async function(req, res, next) {
   console.log("insert  all data done")
 
   res.render('./t15jobIU/jobAppForm');
-});
+}
 
 
-
-/* GET job application */
-router.get('/jobUpdate/:id',async function(req, res, next) {
+const jobUpdateGet = async function(req, res, next) {
   res.render('./t15jobIU/jobAppForm');
-});
+}
 
 
-router.post('/jobUpdate/:id',async function(req, res, next) {
+const jobUpdatePost = async function(req, res, next) {
   let reqObj = req.body;
   console.log("update valo obj",reqObj)
   
@@ -57,22 +50,22 @@ router.post('/jobUpdate/:id',async function(req, res, next) {
 
   return res.render('./t15jobIU/jobAppForm');
   // res.redirect('/allJobApplicantList')
-});
+}
 
 
 
-router.get('/fetchUserData/:id',async function(req, res, next) {
+const fetchUserData = async function(req, res, next) {
 
   let bid=req.params.id 
 
   let obj =await sqlUpdate.getDataById(bid)
   
   res.send(obj);
-});
+}
 
 
 
-router.get('/getStateData',function(req, res, next) {
+const getStateData = function(req, res, next) {
 
   getStateSQl = 'SELECT * FROM tbl_states';
   
@@ -83,10 +76,9 @@ router.get('/getStateData',function(req, res, next) {
               res.send(JSON.parse(JSON.stringify(result)));
           }
       });  
-});
+}
 
-
-router.get('/getCityData/:sid',function(req, res, next) {
+const getCityData = function(req, res, next) {
   
   getCitySQl = 'SELECT * FROM tbl_cities where state_id = ?';
   
@@ -98,7 +90,7 @@ router.get('/getCityData/:sid',function(req, res, next) {
               res.send(JSON.parse(JSON.stringify(result)));
           }
       });  
-});
+}
 
 
 
@@ -110,4 +102,6 @@ router.get('/getCityData/:sid',function(req, res, next) {
 
 
 
-module.exports = router;
+module.exports = {
+  getAllJobApplicanteData,jobRegistrationGet,jobRegistrationPost,jobUpdateGet,jobUpdatePost,fetchUserData,getStateData,getCityData
+}

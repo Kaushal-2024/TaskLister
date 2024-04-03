@@ -1,6 +1,6 @@
 function getALLPostsData() {
     
-    return fetch('https://jsonplaceholder.typicode.com/posts', {
+    return fetch('https://jsonplaceholder.org/posts', {
         
         headers: {
             "Content-Type": "application/json",
@@ -80,7 +80,7 @@ function createPostsView(postJsonData) {
             divCon.appendChild(img)
 
             let p = document.createElement('p')
-            p.innerText = element.body
+            p.innerText = element.content
             divCon.appendChild(p)
 
             div.appendChild(divCon)

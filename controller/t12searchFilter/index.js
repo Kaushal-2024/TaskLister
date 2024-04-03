@@ -1,17 +1,15 @@
-var express = require('express');
-var router = express.Router();
 const dbConn = require('../../connection')
 const sqlHelper = require('./sql-helper')
 
 
-router.get('/searchRecord', function (req, res, next) {
+const searchRecordGet = function (req, res, next) {
 
   let fields, searchObj, totalRecord = undefined; 
   res.render('./t12searchFilter/searchWithfilter', { fields, searchObj, totalRecord })
   
-});
+}
 
-router.post('/searchRecord', function (req, res, next) {
+const searchRecordPost = function (req, res, next) {
 
 
   // console.log("before split", req.originalUrl)
@@ -39,7 +37,7 @@ router.post('/searchRecord', function (req, res, next) {
   console.log('Post route :sqlQry ', sqlQry)
   getDATA(req, res, sqlQry);
 
-});
+}
 
 
 
@@ -109,4 +107,6 @@ function getDATA(req, res, sqlQry) {
   });
 }
 
-module.exports = router;
+module.exports = {
+  searchRecordGet,searchRecordPost
+}

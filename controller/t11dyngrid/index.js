@@ -1,11 +1,9 @@
-let express = require('express');
-let router = express.Router();
 let dbConn = require('../../connection')
 
-/* GET home page. */
-router.get('/t11showTabel', function(req, res, next) {  
-    let fields,sql = undefined;
+
+const showTableGet =  (req, res, next) => {  
     
+    let fields,sql = undefined;    
     let sqlQry = req.query.inputQRY
 
     console.log("sql Qry :",sqlQry)
@@ -15,10 +13,10 @@ router.get('/t11showTabel', function(req, res, next) {
       getDATA(req,res,sqlQry) 
     }    
     
-});
+}
 
-router.post('/t11showTabel', function(req, res, next) {  
-  
+
+const showTablePost = (req, res, next) => {    
 
   console.log("before split",req.originalUrl)
   req.originalUrl  = req.originalUrl.split('?')[0];
@@ -26,7 +24,8 @@ router.post('/t11showTabel', function(req, res, next) {
   console.log("post route ni qry",req.body.inputQRY);
   let sqlQry = req.body.inputQRY; 
   getDATA(req,res,sqlQry)  
-});
+
+}
 
 
 function getDATA(req,res,sqlQry){
@@ -36,9 +35,8 @@ function getDATA(req,res,sqlQry){
   
   let stateMaintainSqlQry = sqlQry;
   
-  if( sqlQry.charAt(sqlQry.length - 1)  == ';')
-  {
-      sqlQry = sqlQry.substring(0, sqlQry.length - 1)
+  if( sqlQry.charAt(sqlQry.length - 1)  == ';'){
+    sqlQry = sqlQry.substring(0, sqlQry.length - 1)
   }
   
   dbConn.query(`select count(*) as totalRecord from(${sqlQry}) as totalRecord`,(error,totalRecord)=>{
@@ -82,4 +80,6 @@ function getDATA(req,res,sqlQry){
   });
 }
 
-module.exports = router;
+module.exports = {
+  showTableGet,showTablePost
+}

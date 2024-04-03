@@ -1,14 +1,13 @@
-const express = require('express');
-const router = express.Router();
+
 const dbConn = require('../../connection')
 
 
-router.get("/t9form", (req, res) => {
+const formGet = (req, res) => {
   console.log("t9 form hit");
   res.render("./t9mysqlCrud/form")
-});
+}
 
-router.post("/t9form", (req, res) => {
+const formPost = (req, res) => {
   console.log("t9 post hit");
     console.log(req.body)
     const { first, last, email, age, mobile, gender,  add } = req.body;
@@ -24,9 +23,9 @@ router.post("/t9form", (req, res) => {
         }
     });
 
-});
+}
 
-router.get("/t9getAllUser", (req, res) => {
+const getAllUser =  (req, res) => {
   dbConn.query('SELECT * FROM `tbl_use`', (error, results) => {
     if (error) {        
         res.redirect('/error',{error})        
@@ -35,9 +34,9 @@ router.get("/t9getAllUser", (req, res) => {
       res.render("./t9mysqlCrud/allUserList", { results })     
     }
   });  
-});
+}
 
-router.get("/t9deleteUser/:userId", (req, res) => {
+const deleteUserById = (req, res) => {
   console.log(req.params.userId)
   dbConn.query('delete from `tbl_use` where id = ?' ,[req.params.userId], (error,results) => {
     if (error) {                
@@ -47,10 +46,10 @@ router.get("/t9deleteUser/:userId", (req, res) => {
       // res.status(200).send('User deleted successfully');  
     }
   });  
-});
+}
 
 
-router.get("/t9userDetails/:userId", (req, res) => {
+const getOneUserDetailByID = (req, res) => {
   
   dbConn.query('SELECT * FROM `tbl_use` where id = (?)',[req.params.userId], (error, results) => {
     if (error) {        
@@ -59,8 +58,10 @@ router.get("/t9userDetails/:userId", (req, res) => {
       res.render("./t9mysqlCrud/userDetails", { results })      
     }
   });    
-})
+}
 
 
 
-module.exports = router;
+module.exports = {
+  formGet,formPost,getAllUser,deleteUserById,getOneUserDetailByID
+}

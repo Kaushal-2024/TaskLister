@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-function addUser(userObj) {
-    
+function addUser(userObj) {    
 
     let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, './userFile.json'), 'utf8'))
     
@@ -16,12 +15,9 @@ function addUser(userObj) {
     console.log("user added in file")
 }
 
-function getAllUser() {
-
-    
+function getAllUser() {    
     let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, './userFile.json'), 'utf8'))
     return users;
-
 }
 
 function getUserbyId(userId) {

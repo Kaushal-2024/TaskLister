@@ -1,15 +1,13 @@
-var express = require('express');
-var router = express.Router();
 const validator  = require('./formValidationBE')
 const dbConn = require('../../connection')
 
 
-router.get('/insertForm', function(req, res, next) {
+const insertFormGet =  function(req, res, next) {
   let message,result=undefined
   res.render('./t14studentIU/form',{ message ,result});
-});
+}
 
-router.post('/insertForm', function(req, res, next) {
+const insertFormPost = function(req, res, next) {
  
   let result=undefined
   let reqObj = req.body;
@@ -21,12 +19,10 @@ router.post('/insertForm', function(req, res, next) {
   }
   
   res.render('./t14studentIU/form', { message,result });
-});
+}
 
 
-
-
-router.get('/updateForm/:sid', async function(req, res, next) {
+const updateFromGet = async function(req, res, next) {
   
   let message=undefined
   let upId= req.params.sid
@@ -45,13 +41,10 @@ router.get('/updateForm/:sid', async function(req, res, next) {
       
       console.log("data for updated",result)
       res.render('./t14studentIU/form',{ message ,result});
-  })
+  })  
+}
 
-  
-});
-
-router.post('/updateForm/:sid', async function(req, res, next) {
- 
+const updateFromPost = async function(req, res, next) { 
   
   let result =  true
   
@@ -66,7 +59,7 @@ router.post('/updateForm/:sid', async function(req, res, next) {
   }
   
   res.render('./t14studentIU/form', { message,result });
-});
+}
 
 
 let insertedData = (insertedObj,res) => {
@@ -106,4 +99,6 @@ let updateData = async (updatedObj) => {
 
 
 
-module.exports = router;
+module.exports = {
+  insertFormGet,insertFormPost,updateFromGet,updateFromPost
+}

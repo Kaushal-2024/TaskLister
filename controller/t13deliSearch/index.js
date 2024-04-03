@@ -1,23 +1,15 @@
-var express = require('express');
-var router = express.Router();
 const dbConn = require('../../connection')
 const sqlHelper = require('./sql-helper')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
-router.get('/delimitedSearch', function (req, res, next) {
+const delimitedSearchGet =  function (req, res, next) {
 
   let fields, searchObj, totalRecord = undefined; 
   res.render('./t13deliSearch/delimitedSearch', { fields, searchObj, totalRecord })
-    
 
+}
 
-});
-
-router.post('/delimitedSearch', function (req, res, next) {
+const delimitedSearchPost =  function (req, res, next) {
 
   let sqlQry = `SELECT
   stud_id,
@@ -36,7 +28,7 @@ router.post('/delimitedSearch', function (req, res, next) {
   // res.render('delimitedSearch', getDATA(req, res, sqlQry))
 
 
-});
+}
 
 
 
@@ -102,4 +94,6 @@ function getDATA(req, res, sqlQry) {
   // });
 }
 
-module.exports = router;
+module.exports = {
+  delimitedSearchGet,delimitedSearchPost
+}
