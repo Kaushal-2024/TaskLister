@@ -66,6 +66,7 @@ function checkWin() {
     // for(let i=0; i<records.length; i++){
     //     console.log(records[i].textContent)
     // } 
+    
 
     for(let i=0; i<8; i++){       
             if(gTable[winArray[i][0]].textContent  == val &&
