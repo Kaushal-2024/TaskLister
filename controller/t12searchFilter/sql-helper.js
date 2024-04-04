@@ -1,9 +1,10 @@
+const {logger} = require('./../../logger')
 
 function makeSearchQuery(sqlQry,bodyParams){
 
     let searchById = bodyParams.searchId || '' ;
     // searchById = searchById.split(',')    
-    console.log(searchById)
+    logger.info(searchById)
 
 
     let searchByName = bodyParams.searchFname;

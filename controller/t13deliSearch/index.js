@@ -1,6 +1,6 @@
 const dbConn = require('../../connection')
 const sqlHelper = require('./sql-helper')
-
+const {logger} = require('./../../logger')
 
 const delimitedSearchGet =  function (req, res, next) {
 
@@ -21,7 +21,7 @@ const delimitedSearchPost =  function (req, res, next) {
   FROM
   tbl_studentMaster`;   
 
-  console.log('Post route :sqlQry ', sqlQry)
+  logger.info('Post route :sqlQry ', sqlQry)
   
   
   getDATA(req, res, sqlQry);
@@ -62,8 +62,8 @@ function getDATA(req, res, sqlQry) {
     // sqlQry = sqlQry.concat(` order by ${orderby} ${orderByType}`)
 
     // Pagination var added in query
-    // console.log('2.pageCounter', pageCounter)
-    // console.log(`limit : ${limit} , offset : ${offset}`)
+    // logger.info('2.pageCounter', pageCounter)
+    // logger.info(`limit : ${limit} , offset : ${offset}`)
     // sqlQry = sqlQry.concat(` limit ${offset},${limit}`)
 
 
@@ -75,7 +75,7 @@ function getDATA(req, res, sqlQry) {
         results = JSON.parse(JSON.stringify(results));
       }
 
-      console.log('4. result', results)
+      logger.info('4. result', results)
 
 
       let resObj = {

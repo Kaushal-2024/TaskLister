@@ -1,7 +1,7 @@
 const sql = require('./sql-helper-insert')
 const sqlUpdate = require('./sql-helper-update')
 var dbConn = require('../../connection')
-
+const {logger} = require('./../../logger')
 
 
 const getAllJobApplicanteData = function(req,res,next){ 
@@ -9,7 +9,7 @@ const getAllJobApplicanteData = function(req,res,next){
    dbConn.query("SELECT * FROM db_jobApp_15march.tbl_basictDetails",(err,result)=>{
 
     if(err){
-      console.log("Error :", err)
+      logger.info("Error :", err)
     }else{ 
 
       res.render("./t15jobIU/allUserList", { result })
@@ -24,13 +24,13 @@ const jobRegistrationGet = function(req, res, next) {
 }
 
 const jobRegistrationPost =  async function(req, res, next) {
-  console.log(req.body)
+  logger.info(req.body)
 
   let reqObj = req.body;
-  console.log("fetch mathi madel data",reqObj);
+  logger.info("fetch mathi madel data",reqObj);
 
   await sql.insertAllData(reqObj)
-  console.log("insert  all data done")
+  logger.info("insert  all data done")
 
   res.render('./t15jobIU/jobAppForm');
 }
@@ -43,10 +43,10 @@ const jobUpdateGet = async function(req, res, next) {
 
 const jobUpdatePost = async function(req, res, next) {
   let reqObj = req.body;
-  console.log("update valo obj",reqObj)
+  logger.info("update valo obj",reqObj)
   
   let msg = await sqlUpdate.updateAllData(reqObj)
-  console.log(msg)
+  logger.info(msg)
 
   return res.render('./t15jobIU/jobAppForm');
   // res.redirect('/allJobApplicantList')
@@ -71,7 +71,7 @@ const getStateData = function(req, res, next) {
   
       dbConn.query(getStateSQl,(err,result)=>{          
           if (err) {
-              console.log("Error :", err)
+              logger.info("Error :", err)
           } else {             
               res.send(JSON.parse(JSON.stringify(result)));
           }
@@ -84,9 +84,9 @@ const getCityData = function(req, res, next) {
   
       dbConn.query(getCitySQl,[req.params.sid],(err,result)=>{          
           if (err) {
-              console.log("Error :", err)
+              logger.info("Error :", err)
           } else {     
-              // console.log(result);        
+              // logger.info(result);        
               res.send(JSON.parse(JSON.stringify(result)));
           }
       });  

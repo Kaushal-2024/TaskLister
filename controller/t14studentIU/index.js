@@ -1,6 +1,6 @@
 const validator  = require('./formValidationBE')
 const dbConn = require('../../connection')
-
+const {logger} = require('./../../logger')
 
 const insertFormGet =  function(req, res, next) {
   let message,result=undefined
@@ -14,7 +14,7 @@ const insertFormPost = function(req, res, next) {
   let message = validator.validateFormObj(reqObj)  
 
   if(message.length == 0){
-    console.log("insert data")
+    logger.info("insert data")
     message = insertedData(req.body)    
   }
   
@@ -31,7 +31,7 @@ const updateFromGet = async function(req, res, next) {
   await new Promise((resolve, reject) => {
     dbConn.query('SELECT * FROM tbl_studentMaster where stud_id = (?)', [upId] ,(error, result) => {
         if (error) {
-            console.log("Error :", error)
+            logger.info("Error :", error)
         } else {
           resolve(result[0])
         }
@@ -39,7 +39,7 @@ const updateFromGet = async function(req, res, next) {
       })
     }).then((result) => {
       
-      console.log("data for updated",result)
+      logger.info("data for updated",result)
       res.render('./t14studentIU/form',{ message ,result});
   })  
 }
@@ -69,7 +69,7 @@ let insertedData = (insertedObj,res) => {
   insertedObj.dob = insertedObj.dob.split("/").reverse().join("-");
   dbConn.query(sqlInserted,Object.values(insertedObj),(error,result)=>{
     if (error) {           
-     console.log(error)
+     logger.info(error)
     }  
 
   });
@@ -78,7 +78,7 @@ let insertedData = (insertedObj,res) => {
 }
 
 let updateData = async (updatedObj) => {
-  console.log("updated obj",updatedObj)
+  logger.info("updated obj",updatedObj)
   let sqlUpdate = 'UPDATE `tbl_studentMaster` SET `fname` = ?, `mname` = ?, `lname` = ?, `dob` = ?, `cno` = ?, `email` = ?, `address` = ?, `city` = ?, `state` = ?, `country` = ?, `zipcode` = ?, `bgroup` = ? WHERE (`stud_id` = ?)';
 
   updatedObj.dob = updatedObj.dob.split("/").reverse().join("-"); 

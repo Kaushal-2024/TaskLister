@@ -1,9 +1,8 @@
 const userApis = require("./userAPIS")
-const router = require("express").Router()
-
+const {logger} = require('./../../logger')
 
 const formGet = (req, res) => {
-    console.log("form may jsy ce");
+    logger.info("form may jsy ce");
     res.render("./t8fileCrud/form")
 }
 

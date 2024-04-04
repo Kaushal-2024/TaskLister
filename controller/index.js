@@ -1,6 +1,8 @@
 const sql = require("./sql-handler");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const {logger} = require('./../logger')
+
 
 // const sessions = {};
 
@@ -16,9 +18,11 @@ const loginGet = function (req, res, next) {
 
 const loginPost =  async function (req, res, next) {
   let obj = JSON.parse(JSON.stringify(req.body));
-  console.log("from mathi madel obj", obj);
+ logger.info("from mathi madel obj", obj);
+  
+  
   let reso = await sql.checkUserAndPass(obj);
-  console.log("respon form sql", { reso });
+ logger.info("respon form sql", { reso });
 
   if (reso == "done") {
     // const sessionToken = uuid.v4();
@@ -34,17 +38,19 @@ const loginPost =  async function (req, res, next) {
     // res.cookie(token);
 
     const token = jwt.sign({ userId: obj.email }, process.env.JWT_SECRET_KEY);
-    console.log("token", token);
+   logger.info("token", token);
     res.cookie("token", token, { expireIn: "1h" });
 
     // const decoded = jwt.verify(token,process.env.token_secret_key);
+
+    
   }
   res.send({ reso });
 }
 
 const dashboard =  async function (req, res, next) {
  
-  console.log("got to dashboard route");
+ logger.info("got to dashboard route");
 
   res.render("dashboard");
 }
@@ -62,7 +68,7 @@ const regUserPost =  async function (req, res, next) {
 }
 
 const confirmReg = async function (req, res, next) {
-  console.log("from confrim page", req.params.a_code);
+ logger.info("from confrim page", req.params.a_code);
   let checkeTime = await sql.isCodeActivated(req.params.a_code);
 
   if (checkeTime) {

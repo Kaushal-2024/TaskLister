@@ -1,11 +1,14 @@
+const {logger} = require('./../../logger')
+
+
 function validateFormObj(reqObj) {
     
    
-    console.log("form validet ob:",reqObj)   
+    logger.info("form validet ob:",reqObj)   
     let msgString =``;
     
     msgString =  msgString.concat(validateReqFields(reqObj))
-    console.log("stirng recive form fucntion",msgString)
+    logger.info("stirng recive form fucntion",msgString)
     if (msgString.length != 0){
         return msgString;
     }    

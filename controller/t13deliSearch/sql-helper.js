@@ -1,9 +1,10 @@
+const {logger} = require('./../../logger')
 
 function makeSearchQuery(sqlQry,bodyParams){
 
     let searchById = bodyParams.searchId || undefined ;
     
-    console.log(searchById)
+    logger.info(searchById)
     
     if(searchById == undefined){
         
@@ -31,8 +32,8 @@ function makeDelimiterSearchQuery(sqlQry,bodyParams){
     let searchByD = bodyParams.searchId || '' ;   
     let mapperObj = makeMapperObj(searchByD)
 
-    console.log("searchByd : ",searchByD)
-    console.log("mapperObj", mapperObj)  
+    logger.info("searchByd : ",searchByD)
+    logger.info("mapperObj", mapperObj)  
     
     let whereCounter = 0;
     for([filed,value] of  Object.entries(mapperObj)){
@@ -52,7 +53,7 @@ function makeDelimiterSearchQuery(sqlQry,bodyParams){
         }
     }
 
-    console.log("sqlQry in  fun makeDelimiterSearchQuery :",sqlQry)
+    logger.info("sqlQry in  fun makeDelimiterSearchQuery :",sqlQry)
     return sqlQry
 }
 
@@ -77,18 +78,20 @@ function makeMapperObj(searchByD){
 
     // create array store index of delimiter in string 
     let indexArray = []    
+    
+   
     for(let i = 0; i< searchByD.length; i++){                
         if(Object.keys(deliObj).includes(searchByD[i])){
             indexArray.push(i)
         }
     }
     indexArray.push(searchByD.length)    
-    console.log("indexArray : ",indexArray)
+    logger.info("indexArray : ",indexArray)
     
     
     // put data in resObj
     for(let i=0; i < indexArray.length-1; i++ ){        
-        resObj[deliObj[searchByD[indexArray[i]]]].push(searchByD.slice(indexArray[i]+1,indexArray[i+1]))
+        resObj[deliObj[searchByD[indexArray[i]]]].push(searchByD.slice(indexArray[i]+1,indexArray[i+1]).trim())
     }    
     
     return resObj;

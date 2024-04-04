@@ -1,4 +1,5 @@
-var dbConn = require('../../connection')
+const dbConn = require('../../connection')
+const {logger} = require('./../../logger')
 
 async function getDataById(bid) {
 
@@ -21,7 +22,7 @@ async function getDataById(bid) {
 
     mainObj.push(await getDataFromTable(`tbl_prefDetails`, bid));
 
-    console.log("mian with edu objctet for all data", mainObj);
+    logger.info("mian with edu objctet for all data", mainObj);
     return mainObj;
 
 
@@ -32,9 +33,9 @@ async function getDataFromTable(table_name, b_id) {
     return await new Promise((res, rej) => {
         dbConn.query(`SELECT * FROM ${table_name} where b_id = ?`, [b_id], (err, result) => {
             if (err) {
-                console.log("Error :", err)
+                logger.info("Error :", err)
             } else {
-                // console.log("result from sleect qry",result);
+                // logger.info("result from sleect qry",result);
                 res(JSON.parse(JSON.stringify(result)));
             }
         });
@@ -129,10 +130,10 @@ async function updateBasicData( upArray) {
     await new Promise((res, rej) => {
         dbConn.query(updateSql, upArray, (err, result) => {
             if (err) {
-                console.log("Error :", err)
+                logger.info("Error :", err)
             } else {
-                // res(console.log(result));
-                res(console.log("update basic data"));
+                // res(logger.info(result));
+                res(logger.info("update basic data"));
             }
         });
     });
@@ -157,10 +158,10 @@ async function updateEduData(upArray) {
         await new Promise((res,rej)=>{
             dbConn.query(upEduSql, element, (error, result) => {
                 if (error) {
-                    console.log("Error :", error)
+                    logger.info("Error :", error)
                 } else {
-                    res(console.log("update edu record"));
-                    // res(console.log("All edu data updated"));
+                    res(logger.info("update edu record"));
+                    // res(logger.info("All edu data updated"));
                 }
             });
         });        
@@ -172,7 +173,7 @@ async function updateExpData(upArray) {
     
     let upExpSql = `UPDATE tbl_workExp SET comName = ?, designation = ?, fromDate = ?, toDate = ? WHERE (w_id = ?)`;
     
-    console.log(upArray);
+    logger.info(upArray);
 
     let structData = upArray.comName.map((comName, index) => {
         return [            
@@ -183,16 +184,16 @@ async function updateExpData(upArray) {
             upArray.expID[index],
         ]
     })    
-    console.log(structData);
+    logger.info(structData);
     
     structData.forEach(async(element) => {
         
         await new Promise((res,rej)=>{
             dbConn.query(upExpSql, element, (error, result) => {
                 if (error) {
-                    console.log("Error :", error)
+                    logger.info("Error :", error)
                 } else {
-                    res(console.log("update exp record"))
+                    res(logger.info("update exp record"))
                 }
             });
         });
@@ -205,7 +206,7 @@ async function updateLangData(upArray) {
     let upLangSql = `UPDATE tbl_langDetails SET l_name = ?, isRead = ?, isWrite= ?, isSpeak = ? WHERE (l_id = ? )`;
     
     
-    console.log(upArray);
+    logger.info(upArray);
 
     let structData = upArray.langName.map((langName, index) => {
         return [            
@@ -216,16 +217,16 @@ async function updateLangData(upArray) {
             upArray.langIdArray[index],
         ]
     })    
-    console.log(structData);
+    logger.info(structData);
     
     structData.forEach(async(element) => {
         
         await new Promise((res,rej)=>{
             dbConn.query(upLangSql, element, (error, result) => {
                 if (error) {
-                    console.log("Error :", error)
+                    logger.info("Error :", error)
                 } else {
-                    res(console.log("update lang record"))
+                    res(logger.info("update lang record"))
                 }
             });
         });
@@ -238,7 +239,7 @@ async function updateTechData(upArray) {
     let upTechSql = `UPDATE tbl_techDetails SET t_name = ?, t_knowlevel = ? WHERE (t_id = ?)    `;
     
     
-    console.log(upArray);
+    logger.info(upArray);
 
     let structData = upArray.techName.map((techName, index) => {
         return [            
@@ -247,16 +248,16 @@ async function updateTechData(upArray) {
             upArray.techIdArray[index],
         ]
     })    
-    console.log(structData);
+    logger.info(structData);
     
     structData.forEach(async(element) => {
         
         await new Promise((res,rej)=>{
             dbConn.query(upTechSql, element, (error, result) => {
                 if (error) {
-                    console.log("Error :", error)
+                    logger.info("Error :", error)
                 } else {
-                    res(console.log("update tech record"))
+                    res(logger.info("update tech record"))
                 }
             });
         });
@@ -268,7 +269,7 @@ async function updateRefData(upArray) {
     let upRefSql = `UPDATE tbl_refDetails SET r_name = ?, con_number = ?, relation = ? WHERE (r_id = ?)`;
     
     
-    console.log(upArray);
+    logger.info(upArray);
 
     let structData = upArray.refName.map((refName, index) => {
         return [            
@@ -279,16 +280,16 @@ async function updateRefData(upArray) {
         
         ]
     })    
-    console.log(structData);
+    logger.info(structData);
     
     structData.forEach(async(element) => {
         
         await new Promise((res,rej)=>{
             dbConn.query(upRefSql, element, (error, result) => {
                 if (error) {
-                    console.log("Error :", error)
+                    logger.info("Error :", error)
                 } else {
-                    res(console.log("update Ref record"))
+                    res(logger.info("update Ref record"))
                 }
             });
         });
@@ -303,10 +304,10 @@ async function updatePrefData(upArray) {
     await new Promise((res, rej) => {
         dbConn.query(updateSql, upArray, (err, result) => {
             if (err) {
-                console.log("Error :", err)
+                logger.info("Error :", err)
             } else {
-                // res(console.log(result));
-                res(console.log("update Pref data"));
+                // res(logger.info(result));
+                res(logger.info("update Pref data"));
             }
         });
     });

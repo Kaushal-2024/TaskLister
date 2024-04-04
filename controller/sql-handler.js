@@ -1,7 +1,7 @@
 let dbConn = require('../connection')
 const crypto = require('crypto'); 
 const md5 = require('md5');
-
+const {logger} = require('./../logger')
 
 
 async function isCodeActivated(a_code){
@@ -11,9 +11,9 @@ async function isCodeActivated(a_code){
         let selectSQL = 'select created_time from  tbl_users where activation_code  = ?';
         dbConn.query(selectSQL,a_code, (error, result) => {
             if (error) {
-                console.log("Error :", error)
+                logger.info("Error :", error)
             } else {               
-            //    console.log(result);
+            //    logger.info(result);
                 resolve(result[0].created_time)
             }
 
@@ -39,7 +39,7 @@ async function insertUser(obj){
     obj.password = md5(obj.password + obj.pw_salt)
     obj.activation_code = crypto.randomUUID();
   
-    console.log(obj);
+    logger.info(obj);
     let sqlInserted = 'INSERT INTO `tbl_users` (`fname`, `lname`, `email`, `cno`, `password`, `pw_salt`, `activation_code`) VALUES (?, ?, ?, ?, ?, ?,? )';
 
     
@@ -48,13 +48,13 @@ async function insertUser(obj){
         
         dbConn.query(sqlInserted, Object.values(obj), (error, result) => {
             if (error) {
-                console.log("Error :", error)
+                logger.info("Error :", error)
             } else {                
                 dbConn.query('select * from tbl_users where u_id = '+result.insertId, (error, result) => {
                     if (error) {
-                        console.log("Error :", error)
+                        logger.info("Error :", error)
                     } else {
-                        console.log("from qry",result);
+                        logger.info("from qry",result);
                         resolve(result[0].activation_code)
                     }    
                 });            
@@ -72,9 +72,9 @@ async function updateStates(a_code){
 
     dbConn.query(sqlUpdate,a_code, (error, result) => {
         if (error) {
-            console.log("Error :", error)
+            logger.info("Error :", error)
         } else {
-            console.log("user status updated");
+            logger.info("user status updated");
         }    
     });  
     
@@ -86,7 +86,7 @@ async function getAllEmail(){
     return await new Promise((resolve, reject) => {
         dbConn.query('SELECT email FROM tbl_users;'  , (error, result) => {
             if (error) {
-                console.log("Error :", error)
+                logger.info("Error :", error)
             } else {
                 resolve(result)
             }    
@@ -100,15 +100,15 @@ async function checkUserAndPass(user){
     return await new Promise((resolve, reject) => {
         dbConn.query('SELECT * FROM tbl_users where email  = ?;',user.email  , (error, result) => {
             if (error) {
-                console.log("Error :", error)
+                logger.info("Error :", error)
             }
             
             
-            console.log("result :",result);
+            logger.info("result :",result);
             if(result.length !== 0 ) {
                 result = JSON.parse(JSON.stringify(result[0]))
-                console.log(result.password);
-                console.log(md5(user.password + result.pw_salt));
+                logger.info(result.password);
+                logger.info(md5(user.password + result.pw_salt));
                if(result.password == md5(user.password + result.pw_salt)){
                     resolve("done")
                }else{

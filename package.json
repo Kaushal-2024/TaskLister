@@ -19,6 +19,11 @@
     "mysql": "^2.18.1",
     "passport": "^0.7.0",
     "path": "^0.12.7",
+    "pino": "^8.19.0",
+    "pino-http": "^9.0.0",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "pino-pretty": "^11.0.0"
   }
 }

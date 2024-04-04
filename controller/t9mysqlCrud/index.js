@@ -1,15 +1,15 @@
 
 const dbConn = require('../../connection')
-
+const {logger} = require('./../../logger')
 
 const formGet = (req, res) => {
-  console.log("t9 form hit");
+  logger.info("t9 form hit");
   res.render("./t9mysqlCrud/form")
 }
 
 const formPost = (req, res) => {
-  console.log("t9 post hit");
-    console.log(req.body)
+  logger.info("t9 post hit");
+    logger.info(req.body)
     const { first, last, email, age, mobile, gender,  add } = req.body;
     const hobbies = req.body.hobbies.toString()
     const insertQry = 'INSERT INTO `tbl_use` (`fname`, `lname`, `email`, `age`, `mobile_no`, `gender`, `hobbies`, `address`) VALUES (?,?,?,?,?,?,?,?)' 
@@ -37,7 +37,7 @@ const getAllUser =  (req, res) => {
 }
 
 const deleteUserById = (req, res) => {
-  console.log(req.params.userId)
+  logger.info(req.params.userId)
   dbConn.query('delete from `tbl_use` where id = ?' ,[req.params.userId], (error,results) => {
     if (error) {                
         res.redirect('/error',{error})        

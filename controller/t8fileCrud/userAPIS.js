@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+const {logger} = require('./../../logger')
 function addUser(userObj) {    
 
     let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, './userFile.json'), 'utf8'))
@@ -12,7 +12,7 @@ function addUser(userObj) {
         if (err) throw err;
     });
 
-    console.log("user added in file")
+    logger.info("user added in file")
 }
 
 function getAllUser() {    

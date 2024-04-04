@@ -1,12 +1,12 @@
 let dbConn = require('../../connection')
-
+const {logger} = require('./../../logger')
 
 const showTableGet =  (req, res, next) => {  
     
     let fields,sql = undefined;    
     let sqlQry = req.query.inputQRY
 
-    console.log("sql Qry :",sqlQry)
+    logger.info("sql Qry :",sqlQry)
     if( sqlQry == undefined){
       res.render('./t11dynegrid/dynamicGrid',{fields,sql})     
     }else{
@@ -18,10 +18,10 @@ const showTableGet =  (req, res, next) => {
 
 const showTablePost = (req, res, next) => {    
 
-  console.log("before split",req.originalUrl)
+  logger.info("before split",req.originalUrl)
   req.originalUrl  = req.originalUrl.split('?')[0];
-  console.log("before split",req.originalUrl)
-  console.log("post route ni qry",req.body.inputQRY);
+  logger.info("before split",req.originalUrl)
+  logger.info("post route ni qry",req.body.inputQRY);
   let sqlQry = req.body.inputQRY; 
   getDATA(req,res,sqlQry)  
 
@@ -31,7 +31,7 @@ const showTablePost = (req, res, next) => {
 function getDATA(req,res,sqlQry){
   
    
-  console.log('1.sqlQry ',sqlQry) 
+  logger.info('1.sqlQry ',sqlQry) 
   
   let stateMaintainSqlQry = sqlQry;
   
@@ -50,13 +50,13 @@ function getDATA(req,res,sqlQry){
     let offset = (pageCounter - 1) * limit;   
     let orderby = req.query.orderBy || '1';
     let orderByType = req.query.orderByType || 'asc';
-    console.log('2.pageCounter',pageCounter) 
+    logger.info('2.pageCounter',pageCounter) 
    
-    console.log(`limit : ${limit} , offset : ${offset}`)
+    logger.info(`limit : ${limit} , offset : ${offset}`)
     
     sqlQry = sqlQry.concat(` order by ${orderby} ${orderByType}`)    
     sqlQry = sqlQry.concat(` limit ${offset},${limit}`)    
-    console.log('3. sqlQry concat',sqlQry) 
+    logger.info('3. sqlQry concat',sqlQry) 
 
     dbConn.query(sqlQry,(error,results,fields)=>{ 
      
@@ -66,7 +66,7 @@ function getDATA(req,res,sqlQry){
       results = JSON.parse(JSON.stringify(results));    
       }
       
-      console.log('4. result',results) 
+      logger.info('4. result',results) 
       res.render('./t11dynegrid/dynamicGrid',{
         fields,
         results,

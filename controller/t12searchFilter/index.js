@@ -1,6 +1,6 @@
 const dbConn = require('../../connection')
 const sqlHelper = require('./sql-helper')
-
+const {logger} = require('./../../logger')
 
 const searchRecordGet = function (req, res, next) {
 
@@ -12,9 +12,9 @@ const searchRecordGet = function (req, res, next) {
 const searchRecordPost = function (req, res, next) {
 
 
-  // console.log("before split", req.originalUrl)
+  // logger.info("before split", req.originalUrl)
   // req.originalUrl = req.originalUrl.split('?')[0];
-  // console.log("before split", req.originalUrl)
+  // logger.info("before split", req.originalUrl)
   // let sqlQry = req.body.inputQRY; 
 
 
@@ -34,7 +34,7 @@ const searchRecordPost = function (req, res, next) {
 
   let sqlQry = req.body.inputQRY;
 
-  console.log('Post route :sqlQry ', sqlQry)
+  logger.info('Post route :sqlQry ', sqlQry)
   getDATA(req, res, sqlQry);
 
 }
@@ -55,7 +55,7 @@ function getDATA(req, res, sqlQry) {
 
   // search
   sqlQry = sqlHelper.makeSearchQuery(sqlQry, req.body)
-  console.log('3. sqlQry concat', sqlQry)
+  logger.info('3. sqlQry concat', sqlQry)
 
   dbConn.query(`select count(*) as totalRecord from(${sqlQry}) as totalRecord`, (error, totalRecord) => {
 
@@ -74,8 +74,8 @@ function getDATA(req, res, sqlQry) {
     // sqlQry = sqlQry.concat(` order by ${orderby} ${orderByType}`)
 
     // Pagination var added in query
-    console.log('2.pageCounter', pageCounter)
-    console.log(`limit : ${limit} , offset : ${offset}`)
+    logger.info('2.pageCounter', pageCounter)
+    logger.info(`limit : ${limit} , offset : ${offset}`)
     sqlQry = sqlQry.concat(` limit ${offset},${limit}`)
 
 
@@ -88,7 +88,7 @@ function getDATA(req, res, sqlQry) {
         results = JSON.parse(JSON.stringify(results));
       }
 
-      // console.log('4. result', results)
+      // logger.info('4. result', results)
 
 
       let resObj = {
@@ -99,7 +99,7 @@ function getDATA(req, res, sqlQry) {
         sql: stateMaintainSqlQry,
         searchObj: req.body
       }
-      console.log(resObj.searchObj)
+      logger.info(resObj.searchObj)
 
       res.render('./t12searchFilter/searchWithfilter', resObj)
     });
