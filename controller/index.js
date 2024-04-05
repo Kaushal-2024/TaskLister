@@ -18,11 +18,11 @@ const loginGet = function (req, res, next) {
 
 const loginPost =  async function (req, res, next) {
   let obj = JSON.parse(JSON.stringify(req.body));
- logger.info("from mathi madel obj", obj);
+ logger.info(`from mathi madel obj : ${JSON.stringify(obj)}`);
   
   
   let reso = await sql.checkUserAndPass(obj);
- logger.info("respon form sql", { reso });
+ logger.info(`respon form sql" :  ${ reso }`);
 
   if (reso == "done") {
     // const sessionToken = uuid.v4();
@@ -38,7 +38,7 @@ const loginPost =  async function (req, res, next) {
     // res.cookie(token);
 
     const token = jwt.sign({ userId: obj.email }, process.env.JWT_SECRET_KEY);
-   logger.info("token", token);
+    logger.info(`token: ${token}`);
     res.cookie("token", token, { expireIn: "1h" });
 
     // const decoded = jwt.verify(token,process.env.token_secret_key);
@@ -68,7 +68,7 @@ const regUserPost =  async function (req, res, next) {
 }
 
 const confirmReg = async function (req, res, next) {
- logger.info("from confrim page", req.params.a_code);
+ logger.info(`from confrim page :${req.params.a_code}`);
   let checkeTime = await sql.isCodeActivated(req.params.a_code);
 
   if (checkeTime) {
@@ -84,6 +84,11 @@ const getAllEmailId = async function (req, res, next) {
   res.send(JSON.parse(JSON.stringify(allEmail)));
 }
 
+const defaultRoute = function(req, res, next) {
+  res.render('defaultRoute');
+}
+
+
 module.exports = {
-    logOut,loginGet,loginPost,dashboard,regUserGet,regUserPost,confirmReg,getAllEmailId
+    logOut,loginGet,loginPost,dashboard,regUserGet,regUserPost,confirmReg,getAllEmailId,defaultRoute
 }

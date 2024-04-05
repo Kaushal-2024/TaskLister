@@ -21,12 +21,11 @@ const delimitedSearchPost =  function (req, res, next) {
   FROM
   tbl_studentMaster`;   
 
-  logger.info('Post route :sqlQry ', sqlQry)
+  logger.info(`Post route : ${sqlQry}`)
   
   
   getDATA(req, res, sqlQry);
   // res.render('delimitedSearch', getDATA(req, res, sqlQry))
-
 
 }
 
@@ -75,7 +74,8 @@ function getDATA(req, res, sqlQry) {
         results = JSON.parse(JSON.stringify(results));
       }
 
-      logger.info('4. result', results)
+      logger.info(`4. result :`+ JSON.stringify(results, null, 2))
+      
 
 
       let resObj = {

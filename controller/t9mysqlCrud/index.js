@@ -3,13 +3,13 @@ const dbConn = require('../../connection')
 const {logger} = require('./../../logger')
 
 const formGet = (req, res) => {
-  logger.info("t9 form hit");
+  logger.info("t9 form get hit");
   res.render("./t9mysqlCrud/form")
 }
 
 const formPost = (req, res) => {
-  logger.info("t9 post hit");
-    logger.info(req.body)
+  logger.info("t9 form post hit");
+
     const { first, last, email, age, mobile, gender,  add } = req.body;
     const hobbies = req.body.hobbies.toString()
     const insertQry = 'INSERT INTO `tbl_use` (`fname`, `lname`, `email`, `age`, `mobile_no`, `gender`, `hobbies`, `address`) VALUES (?,?,?,?,?,?,?,?)' 

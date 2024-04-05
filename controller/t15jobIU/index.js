@@ -9,7 +9,7 @@ const getAllJobApplicanteData = function(req,res,next){
    dbConn.query("SELECT * FROM db_jobApp_15march.tbl_basictDetails",(err,result)=>{
 
     if(err){
-      logger.info("Error :", err)
+      logger.info(`Error :${err}`)
     }else{ 
 
       res.render("./t15jobIU/allUserList", { result })
@@ -27,7 +27,7 @@ const jobRegistrationPost =  async function(req, res, next) {
   logger.info(req.body)
 
   let reqObj = req.body;
-  logger.info("fetch mathi madel data",reqObj);
+  logger.info(`fetch mathi madel data : ${reqObj}`);
 
   await sql.insertAllData(reqObj)
   logger.info("insert  all data done")
@@ -43,7 +43,7 @@ const jobUpdateGet = async function(req, res, next) {
 
 const jobUpdatePost = async function(req, res, next) {
   let reqObj = req.body;
-  logger.info("update valo obj",reqObj)
+  logger.info(`update valo obj ${reqObj}`)
   
   let msg = await sqlUpdate.updateAllData(reqObj)
   logger.info(msg)
@@ -71,7 +71,7 @@ const getStateData = function(req, res, next) {
   
       dbConn.query(getStateSQl,(err,result)=>{          
           if (err) {
-              logger.info("Error :", err)
+            logger.info(`Error :${err}`)
           } else {             
               res.send(JSON.parse(JSON.stringify(result)));
           }
@@ -84,7 +84,7 @@ const getCityData = function(req, res, next) {
   
       dbConn.query(getCitySQl,[req.params.sid],(err,result)=>{          
           if (err) {
-              logger.info("Error :", err)
+            logger.info(`Error :${err}`)
           } else {     
               // logger.info(result);        
               res.send(JSON.parse(JSON.stringify(result)));

@@ -32,8 +32,8 @@ function makeDelimiterSearchQuery(sqlQry,bodyParams){
     let searchByD = bodyParams.searchId || '' ;   
     let mapperObj = makeMapperObj(searchByD)
 
-    logger.info("searchByd : ",searchByD)
-    logger.info("mapperObj", mapperObj)  
+    logger.info(`searchByd : ${searchByD}`)
+    logger.info("mapperObj : "+ JSON.stringify(mapperObj,null,2))
     
     let whereCounter = 0;
     for([filed,value] of  Object.entries(mapperObj)){
@@ -53,8 +53,8 @@ function makeDelimiterSearchQuery(sqlQry,bodyParams){
         }
     }
 
-    logger.info("sqlQry in  fun makeDelimiterSearchQuery :",sqlQry)
-    return sqlQry
+    logger.info(`sqlQry in  fun makeDelimiterSearchQuery : ${sqlQry}`)
+    return sqlQry;
 }
 
 function makeMapperObj(searchByD){
@@ -86,13 +86,14 @@ function makeMapperObj(searchByD){
         }
     }
     indexArray.push(searchByD.length)    
-    logger.info("indexArray : ",indexArray)
+    logger.info(`indexArray : "${indexArray}`)
     
     
     // put data in resObj
     for(let i=0; i < indexArray.length-1; i++ ){        
         resObj[deliObj[searchByD[indexArray[i]]]].push(searchByD.slice(indexArray[i]+1,indexArray[i+1]).trim())
-    }    
+    }  
+      
     
     return resObj;
 }

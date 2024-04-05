@@ -97,7 +97,7 @@ router.route("/posts/:postId").get(isLoggedIn, t16json.getPostById)
 router.route("/timeZone").get(isLoggedIn, t17timezone.timeZone)
 router.route("/fetchCityData").get(isLoggedIn, t17timezone.fetchCityData)
 
-
+router.route("/*").get(index.defaultRoute)
 
 module.exports = router;
  

@@ -34,7 +34,7 @@ const searchRecordPost = function (req, res, next) {
 
   let sqlQry = req.body.inputQRY;
 
-  logger.info('Post route :sqlQry ', sqlQry)
+  logger.info(`Post route :${sqlQry}`)
   getDATA(req, res, sqlQry);
 
 }
@@ -55,7 +55,7 @@ function getDATA(req, res, sqlQry) {
 
   // search
   sqlQry = sqlHelper.makeSearchQuery(sqlQry, req.body)
-  logger.info('3. sqlQry concat', sqlQry)
+  logger.info(`3. sqlQry concat'${sqlQry}`)
 
   dbConn.query(`select count(*) as totalRecord from(${sqlQry}) as totalRecord`, (error, totalRecord) => {
 
@@ -74,7 +74,7 @@ function getDATA(req, res, sqlQry) {
     // sqlQry = sqlQry.concat(` order by ${orderby} ${orderByType}`)
 
     // Pagination var added in query
-    logger.info('2.pageCounter', pageCounter)
+    logger.info(`2.pageCounter : {pageCounter}`)
     logger.info(`limit : ${limit} , offset : ${offset}`)
     sqlQry = sqlQry.concat(` limit ${offset},${limit}`)
 

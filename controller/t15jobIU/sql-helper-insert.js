@@ -21,7 +21,7 @@ async function insertAllData(reqObj) {
     await insertedBasicData(basicDetailsObj)
         .then(async (bId) => {
 
-            logger.info("bid :", bId)
+            logger.info(`bid :${bId}`)
 
             let eduDetailsObj = {
                 bId,
@@ -87,7 +87,7 @@ let insertedBasicData = async (insertedObj) => {
     return await new Promise((resolve, reject) => {
         dbConn.query(sqlInserted, insertedObj, (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {
                 resolve(result.insertId)
             }
@@ -101,7 +101,7 @@ let insertedEduData = (insertedObj) => {
     let sqlInserted = 'INSERT INTO `tbl_edu` (`b_id`, `courceName`, `pass_year`, `percentage`) VALUES (?, ?, ?, ?)';
 
 
-    logger.info("edu detials ", insertedObj)
+    logger.info(`edu detials ${insertedObj}`)
 
     let structData = insertedObj.cName.map((cName, index) => {
         return [
@@ -118,9 +118,9 @@ let insertedEduData = (insertedObj) => {
 
         dbConn.query(sqlInserted, element, (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {
-                logger.info("edu inserted :", result.insertId)
+                logger.info(`edu inserted : ${result.insertId}`)
             }
         });
 
@@ -134,7 +134,7 @@ let insertedExpData = (insertedObj) => {
     let sqlInserted = 'INSERT INTO `tbl_workExp` (`b_id`, `comName`, `designation`, `fromDate`, `toDate`) VALUES ( ?, ?, ?, ?, ?)';
 
 
-    logger.info("exp detials ", insertedObj)
+    logger.info(`exp detials  ${insertedObj}`)
 
     let structData = insertedObj.comName.map((comName, index) => {
         return [
@@ -152,9 +152,9 @@ let insertedExpData = (insertedObj) => {
         
         dbConn.query(sqlInserted, element, (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {
-                logger.info("exp inserted :", result.insertId)
+                logger.info(`exp inserted :${result.insertId}`)
             }
         });
     });
@@ -168,7 +168,7 @@ let insertedLangData = (insertedObj) => {
     let sqlInserted = 'INSERT INTO `tbl_langDetails` (`b_id`, `l_name`, `isRead`, `isWrite`, `isSpeak`) VALUES      (?, ?, ?, ?, ?)';
 
 
-    logger.info("lang detials ", insertedObj)
+    logger.info(`lang detials ${insertedObj}`)
 
     let structData = insertedObj.langName.map((langName, index) => {
         return [
@@ -186,9 +186,9 @@ let insertedLangData = (insertedObj) => {
 
         dbConn.query(sqlInserted, element, (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {
-                logger.info("lang inserted :", result.insertId)
+                logger.info(`lang inserted : ${result.insertId}`)
             }
         });
     });
@@ -202,7 +202,7 @@ let insertedTechData = (insertedObj) => {
     let sqlInserted = 'INSERT INTO `tbl_techDetails` (`b_id`, `t_name`, `t_knowlevel`) VALUES (?, ?, ?)';
 
 
-    logger.info("edu detials ", insertedObj)
+    logger.info(`edu detials  ${insertedObj}`)
 
     let structData = insertedObj.techName.map((techName, index) => {
         return [
@@ -218,9 +218,9 @@ let insertedTechData = (insertedObj) => {
 
         dbConn.query(sqlInserted, element, (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {
-                logger.info("tech inserted :", result.insertId)
+                logger.info(`tech inserted : ${result.insertId}`)
             }
         });
 
@@ -235,7 +235,7 @@ let insertedRefData = (insertedObj) => {
 
 
 
-    logger.info("ref detials ", insertedObj)
+    logger.info(`ref detials : ${insertedObj}`)
 
     let structData = insertedObj.refName.map((refName, index) => {
         return [
@@ -252,9 +252,9 @@ let insertedRefData = (insertedObj) => {
 
         dbConn.query(sqlInserted, element, (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {
-                logger.info("ref inserted :", result.insertId)
+                logger.info(`ref inserted : ${result.insertId}`)
             }
         });
 
@@ -269,9 +269,9 @@ let insertedPrefData = (insertedObj) => {
 
     dbConn.query(sqlInserted, insertedObj, (error, result) => {
         if (error) {
-            logger.info("Error :", error)
+            logger.info(`Error :${error}`)
         } else {
-            logger.info("pref inserted :", result.insertId)
+            logger.info(`pref inserted : ${result.insertId}`)
         }
 
     });

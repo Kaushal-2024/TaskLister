@@ -1,15 +1,19 @@
 const jwt = require("jsonwebtoken");
+const {logger} = require('./../logger')
+
 
 function isLoggedIn(req, res, next){
     const token = req.cookies["token"];
-    console.log("token", token);
+    
+    logger.info(`token : ${token}`);
   
     if (!token) {
       return res.redirect("/login");
     }
   
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    console.log("decode obj", decoded);
+    logger.info(`decode obj : " ${decoded}`)
+    
   
     if (!decoded) {
       return res.redirect("/login");

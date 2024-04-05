@@ -11,7 +11,7 @@ async function isCodeActivated(a_code){
         let selectSQL = 'select created_time from  tbl_users where activation_code  = ?';
         dbConn.query(selectSQL,a_code, (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {               
             //    logger.info(result);
                 resolve(result[0].created_time)
@@ -48,13 +48,13 @@ async function insertUser(obj){
         
         dbConn.query(sqlInserted, Object.values(obj), (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {                
                 dbConn.query('select * from tbl_users where u_id = '+result.insertId, (error, result) => {
                     if (error) {
-                        logger.info("Error :", error)
+                        logger.info(`Error :${error}`)
                     } else {
-                        logger.info("from qry",result);
+                        logger.info(`from qry"${result}`);
                         resolve(result[0].activation_code)
                     }    
                 });            
@@ -72,7 +72,7 @@ async function updateStates(a_code){
 
     dbConn.query(sqlUpdate,a_code, (error, result) => {
         if (error) {
-            logger.info("Error :", error)
+            logger.info(`Error :${error}`)
         } else {
             logger.info("user status updated");
         }    
@@ -86,7 +86,7 @@ async function getAllEmail(){
     return await new Promise((resolve, reject) => {
         dbConn.query('SELECT email FROM tbl_users;'  , (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             } else {
                 resolve(result)
             }    
@@ -100,11 +100,11 @@ async function checkUserAndPass(user){
     return await new Promise((resolve, reject) => {
         dbConn.query('SELECT * FROM tbl_users where email  = ?;',user.email  , (error, result) => {
             if (error) {
-                logger.info("Error :", error)
+                logger.info(`Error :${error}`)
             }
             
             
-            logger.info("result :",result);
+            logger.info(`result : ${JSON.stringify(result,null,2)}`);
             if(result.length !== 0 ) {
                 result = JSON.parse(JSON.stringify(result[0]))
                 logger.info(result.password);
